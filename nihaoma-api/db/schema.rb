@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_021551) do
+ActiveRecord::Schema.define(version: 2019_08_07_214514) do
 
   create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2019_08_07_021551) do
 
   create_table "diseases", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.text "disease_name", limit: 4294967295
+  end
+
+  create_table "diseases_doctors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "disease_id", null: false
+    t.integer "doctor_id", null: false
+  end
+
+  create_table "diseases_treatments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "disease_id", null: false
+    t.integer "treatment_id", null: false
   end
 
   create_table "diseases_trials", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -47,9 +57,14 @@ ActiveRecord::Schema.define(version: 2019_08_07_021551) do
     t.index ["trial_id"], name: "trialKey_doctor"
   end
 
+  create_table "doctors_visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "visit_id"
+  end
+
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "disease_id"
     t.string "group_type", comment: "dis_group, interest_group, official_group"
+    t.bigint "disease_id"
     t.string "group_name"
     t.string "description"
     t.string "avatar_url"
@@ -126,17 +141,14 @@ ActiveRecord::Schema.define(version: 2019_08_07_021551) do
 
   create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "doctor_id"
     t.integer "disease_id"
-    t.datetime "date_of_visit"
+    t.date "date_of_visit"
     t.string "visit_type", comment: "treatement visit, regular visit"
     t.string "diagnosis"
   end
 
   add_foreign_key "diseases_trials", "diseases", name: "diseaseKey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "diseases_trials", "trials", name: "trialKey", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "doctors_trials", "doctors", name: "doctorKey", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "doctors_trials", "trials", name: "trialKey_doctor", on_update: :cascade, on_delete: :cascade
   add_foreign_key "groups_users", "groups", name: "groupKey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "groups_users", "users", name: "userKey"
   add_foreign_key "treatments_trials", "treatments", name: "treatmentKey", on_update: :cascade, on_delete: :cascade
