@@ -1,33 +1,63 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100vw;
+  height: 40vw;
+  border-radius: 0vw;
+  border: 0.1vw solid grey;
+  position: relative;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: stretch
+}
+
+.title-box {
+  display: flex;
+  width: 100vw;
+  height: 20vw;
+  border-radius: 0vw;
+  /* border: 0.1vw solid grey; */
+  position: relative;
+  justify-content: center;
+  align-items: center
+}
+
+background{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+
+canvas{width: 60;
+
+}
+
+.typewriter {
+  text-align: center;
+  overflow: hidden; 
+  border-right: .15em solid black; 
   color: white;
+  font-family: Courier New;
+  top:30%;
+  font-size: 40px;
+  white-space: nowrap; 
+  letter-spacing: .30em;
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .75s step-end infinite;
 }
 
-.App-link {
-  color: #61dafb;
+/* The typing effect */
+@keyframes typing {
+  from { width:20% }
+  to { width: 50% }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+}
+
+.title-text {
+  font-family: 'Tangerine', serif;
+  font-size: 48px;
 }

@@ -5,14 +5,14 @@ class ResourceContainer extends Component {
   state = {  }
   render() { 
     return ( 
-      <>
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      </>
+      <div className="section-container">
+        <Phoneframe />
+        <Phoneframe />
+        <Phoneframe />
+        <Phoneframe />
+        <Phoneframe />
+
+      </div>
      );
   }
 }

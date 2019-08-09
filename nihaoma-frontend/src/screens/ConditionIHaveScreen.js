@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import '../stylesheets/Phoneframe.css';
+import Phoneframe from '../components/Phoneframe.js';
 
-class Phoneframe extends Component {
-  // state = {  }
+class ConditionIHaveScreen extends Component {
+  
+  state = {
+    currentDisease: ''
+    }
+
   render() { 
     return ( 
       <div class="iphone-container">
@@ -15,8 +20,10 @@ class Phoneframe extends Component {
           </div>
           
           <div class="screen">
-
-            
+            <h3>The condition I have is</h3>
+            <form onSumbit="handleDiseaseSubmit">
+              <input type="text" value={this.state.currentDisease} onChange={this.handleChange} name="currentDisease" placeholder="Please put in the condition name" />
+            </form>
           </div>
 
           <div class="button">      
@@ -29,4 +36,4 @@ class Phoneframe extends Component {
   }
 }
  
-export default Phoneframe;
+export default ConditionIHaveScreen;

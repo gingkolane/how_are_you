@@ -1,7 +1,7 @@
 .container {
-  width: 33vw;
-  height: 61vw;
-  border-radius: 2.5vw;
+  width: 15vw;
+  height: 38vw;
+  border-radius: 1.5vw;
   border: 0.1vw solid grey;
   display: flex;
   justify-content: center;
@@ -16,9 +16,10 @@
   justify-content: center;
 /*   background-color: red; */
   border: 0.1vw solid grey;
-  width: 32vw;
-  height: 60vw;
-  border-radius: 2vw
+  width: 17vw;
+  height: 37vw;
+  border-radius: 2vw;
+  margin: 1vw
 }
 .screen {
 /*   background-color: blue; */
@@ -28,7 +29,7 @@
   height: 80%;
   padding: 1vw;
   overflow: scroll;
-  font-size: 1.5vw;
+  font-size: 1vw;
 }
 
 .button {

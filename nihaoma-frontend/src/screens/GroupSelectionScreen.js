@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../stylesheets/Phoneframe.css';
+import Phoneframe from '../components/Phoneframe.js';
 
-class Phoneframe extends Component {
+class GroupSelectionScreen extends Component {
   // state = {  }
   render() { 
     return ( 
@@ -29,4 +30,4 @@ class Phoneframe extends Component {
   }
 }
  
-export default Phoneframe;
+export default GroupSelectionScreen;

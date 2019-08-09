@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import Phoneframe from '../components/Phoneframe.js';
+// import DiseaseShowCurrent from '../screens/DiseaseShowCurrent.js';
+import DiseaseShowAll from '../screens/DiseaseShowAll.js'
+
 
 class InfoContainer extends Component {
-  state = {  }
+
   render() { 
     return ( 
-      <>
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      <Phoneframe />
-      </>
+      <div className="section-container">
+        {/* <DiseaseShowCurrent /> */}
+        <DiseaseShowAll />
+      </div>
      );
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getCurrentUser } from "../actions/userActions";
+// import { getCurrentUser } from "../actions/userActions";
 
 export default function withAuth(ComponentToBeWrapped) {
   class Something extends React.Component {
