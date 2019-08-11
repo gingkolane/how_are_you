@@ -1,4 +1,4 @@
-import { createSlice, createAction } from 'redux-starter-kit';
+import { createSlice } from 'redux-starter-kit';
 import { applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 
@@ -13,6 +13,9 @@ const diseasesSlice = createSlice({
   reducers: {
     getDiseases(state, action) {
       return {...state, all: action.payload}
+      // return {...state, all: action.payload}
+
+
       }
 
     // getCurrentDisease(state, action){

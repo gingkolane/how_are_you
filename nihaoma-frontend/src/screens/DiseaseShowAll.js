@@ -10,6 +10,8 @@ class DiseaseShowAll extends Component {
     .then(diseases => {        
       const lessDiseases = diseases.slice(0, 10)
       this.props.getDiseases(lessDiseases)
+      // we send lessDiseases to the store using dispatch
+       // store.dispatch(getDiseases(lessDiseases));
     })
   }
 

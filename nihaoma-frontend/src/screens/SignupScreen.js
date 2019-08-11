@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../stylesheets/Phoneframe.css';
 import { connect } from 'react-redux'
 // import { signUp } from '../actions/userActions'
+import { login } from '../slices/userSlice.js'
 
 class SignupScreen extends Component {
 
@@ -10,10 +10,14 @@ class SignupScreen extends Component {
     password: ''
   }
 
-  componentDidMount() {
-    if (localStorage.token) {
-      this.props.history.push("/profile")
-    }
+  // componentDidMount() {
+  //   if (localStorage.token) {
+  //     this.props.history.push("/profile")
+  //   }
+  // }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
@@ -22,10 +26,6 @@ class SignupScreen extends Component {
       .then(()=> {
         this.props.history.push("/profile")
       })
-  }
-
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
   }
 
   render() {
@@ -54,9 +54,6 @@ class SignupScreen extends Component {
         </div>
 
       </div>
-
-
-
     );
   }
 }
@@ -72,3 +69,4 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupScreen)
+
