@@ -11,16 +11,11 @@ const diseasesSlice = createSlice({
   },
 
   reducers: {
-    getDiseases(state, action) {
-      return {...state, all: action.payload}
-      // return {...state, all: action.payload}
 
+    // getDiseases(state, action) {
+    //   return {...state, all: action.payload}
+    getDiseases: (state, action) => { return {...state, all: action.payload} }
 
-      }
-
-    // getCurrentDisease(state, action){
-    //   currentDisease: action.payload[0]
-    // }
 
   }
 

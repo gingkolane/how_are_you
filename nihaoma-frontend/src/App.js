@@ -14,7 +14,7 @@ class App extends Component {
     return ( 
       <>
         <div className="title-box">
-          <Typist stdTypingDelay="250" className="title-text">
+          <Typist stdTypingDelay='250' className="title-text">
             This is an app supporting you, <br/>
             <br/>
             when you are fragile. <br/>
@@ -32,32 +32,32 @@ class App extends Component {
         </div>
         <SignupContainer/> */}
 
-        <div class="title-box">
+        <div className="title-box">
           <span className="title-text">You can learn more about your disease and treatment options, you get the same information as the doctors have </span>
         </div>
         <InfoContainer />
 
-        <div class="title-box">
+        <div className="title-box">
           <span className="title-text">You can share your experiences and knowledges with others...</span>
         </div>
         <CircleContainer />
 
-        <div class="title-box">
+        <div className="title-box">
           <span className="title-text">You can find the best doctors in the fields...</span>
         </div>
         <ResourceContainer />
 
-        <div class="title-box">
+        <div className="title-box">
           <span className="title-text">You can keep track of your doctor visits and medical records</span>
         </div>
         <VisitContainer />
 
-        <div class="title-box">
+        <div className="title-box">
           <span className="title-text">And keep track of all the medicines in your cupboards and drawers...</span>
         </div>
         <MedicineContainer />
 
-        <div class="title-box">
+        <div className="title-box">
           <span className="title-text">Give it a try! </span>
         </div>
       </>

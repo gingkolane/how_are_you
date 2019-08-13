@@ -17,23 +17,23 @@ class DiseaseShowAll extends Component {
 
   render() {
     const showDiseases = this.props.diseases.map(disease => 
-      <p> {disease.disease_name}</p>
+      <p key={disease.id}> {disease.disease_name}</p>
     )
 
     return (
-      <div class="iphone-container">
-        <div class="iphone">
-          <div class="top-bar">
-            <div class="speaker"></div> 
-            <div class="camera"></div> 
-            <div class="camera-2"></div> 
+      <div className="iphone-container">
+        <div className="iphone">
+          <div className="top-bar">
+            <div className="speaker"></div> 
+            <div className="camera"></div> 
+            <div className="camera-2"></div> 
           </div>
           
-          <div class="screen">
+          <div className="screen">
             {showDiseases}
           </div>
 
-          <div class="button">      
+          <div className="button">      
           </div>
         </div>
       </div>
@@ -46,8 +46,10 @@ const mapStateToProps = state => {
   return { diseases: state.diseases.all }
 }
 
-const mapDispatchToProps = dispatch => ({
-  getDiseases: (diseases) => dispatch(getDiseases(diseases))
-})
+
+// this place you can get functions like this
+const mapDispatchToProps = {
+  getDiseases: getDiseases
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiseaseShowAll)
