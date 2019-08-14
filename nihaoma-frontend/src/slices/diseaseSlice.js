@@ -1,23 +1,17 @@
 import { createSlice } from 'redux-starter-kit';
-import { applyMiddleware } from "redux";
-import thunk from 'redux-thunk';
-
 
 const diseasesSlice = createSlice({
-  // slice: 'diseases',
+  slice: 'disease',
   initialState: { 
     all: [], 
     currentDisease: {}
   },
 
+//this should be called actions
   reducers: {
-
-    // getDiseases(state, action) {
-    //   return {...state, all: action.payload}
-    getDiseases: (state, action) => { return {...state, all: action.payload} }
-
-
-  }
+    getDiseases: (state, action) => { return {...state, all: action.payload} },
+    // getRandomDisease: (state, action) => {return {...state, currentDisease: action.payload.}}
+  },
 
 });
 
@@ -25,6 +19,8 @@ const diseasesSlice = createSlice({
 // Extract the action creators object and the reducer
 const { actions, reducer } = diseasesSlice
 // Extract and export each action creator by name
-export const { getDiseases } = actions
-// Export the reducer, either as a default or named export
+// each function defined in the reducers argument will have a corresponding ation cretor generated using create Action and included in the result's actions file dusing the same function name
+export const { getDiseases, getRandomDisease } = actions
+
+// Export the reducer, this reducer is a slice reducer that has many functions in it
 export default reducer

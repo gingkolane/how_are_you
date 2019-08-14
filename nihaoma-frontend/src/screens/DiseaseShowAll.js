@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getDiseases } from '../slices/diseaseSlice.js'
+import { getDiseases, getRandomDisease } from '../slices/diseaseSlice.js'
+// import { getDiseases } from '../slices/diseaseSlice_withEffects'
 
 class DiseaseShowAll extends Component {
 
   componentDidMount() {
+    // use with diseaseSlice-------------
     fetch("http://localhost:3000/diseases")
     .then(res => res.json())
     .then(diseases => {        
       const lessDiseases = diseases.slice(0, 10)
       this.props.getDiseases(lessDiseases)
-      // we send lessDiseases to the store using dispatch
-       // store.dispatch(getDiseases(lessDiseases));
     })
+//use with diseaseSlice_withEffects
+    // this.props.getDiseases()
   }
 
   render() {
@@ -21,7 +23,7 @@ class DiseaseShowAll extends Component {
     )
 
     return (
-      <div className="iphone-container">
+      <div className="iphone-container" onClick={() => this.props.getRandomDisease({chloe: [], eric: "2"})}>
         <div className="iphone">
           <div className="top-bar">
             <div className="speaker"></div> 
@@ -43,13 +45,18 @@ class DiseaseShowAll extends Component {
 }
 
 const mapStateToProps = state => {
-  return { diseases: state.diseases.all }
+  // console.log("this is store inside diseaseshowall", state.diseaseSlice.all);
+  return { diseases: state.disease.all }
 }
 
 
 // this place you can get functions like this
 const mapDispatchToProps = {
-  getDiseases: getDiseases
+  getDiseases,
+  getRandomDisease
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DiseaseShowAll)
+
+
+// https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao

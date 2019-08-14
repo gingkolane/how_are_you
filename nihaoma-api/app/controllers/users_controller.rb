@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   private
   # note:  rails api, don't need to use require.
   def user_params
-    params.permit(:username, :password, :realname, :email, :mobile, 
+    params.permit(:username, :password, :myCondition, :realname, :email, :mobile, 
     :status, :age, :gender, :city, :user_pict, :description, :tag)
   end
 

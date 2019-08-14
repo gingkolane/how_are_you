@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_214514) do
+ActiveRecord::Schema.define(version: 2019_08_14_023826) do
 
   create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2019_08_07_214514) do
   end
 
   create_table "doctors_visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "doctor_id"
     t.integer "visit_id"
+    t.integer "doctor_id"
   end
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_214514) do
     t.string "description"
     t.string "tag"
     t.datetime "time_registered"
+    t.string "myCondition"
   end
 
   create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|

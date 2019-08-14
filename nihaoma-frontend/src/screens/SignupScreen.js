@@ -1,71 +1,78 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import { signUp } from '../actions/userActions'
-import { login } from '../slices/userSlice.js'
+import { signUp } from '../slices/userSlice.js'
 
 class SignupScreen extends Component {
 
   state = {
-    username: '',
-    password: ''
+      username: '',
+      password: '', 
+      myCondition: ''
   }
-
-  // componentDidMount() {
-  //   if (localStorage.token) {
-  //     this.props.history.push("/profile")
-  //   }
-  // }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.signUp(this.state.username, this.state.password)
-      .then(()=> {
-        this.props.history.push("/profile")
+    e.preventDefault();
+    //submit user form data to user table to create new user, then get a token back, save to local storage and dispatch information to store
+    fetch("http://localhost:3000/signup",{ 
+        method: "post",
+        headers: {
+          "Content-Type":"application/json",
+          "Accepts":"application/json"},
+        body: JSON.stringify(this.state)
       })
-  }
+    .then(res => res.json())
+    .then(data => {
+      //save token to localStorage
+      localStorage.token = data.token;
+      //dispatch user information to store
+      console.log("user and data inside the second then of fetch", this.state, data)
+      this.props.signUp({user: this.state, token: data.token})
+    })
+  };
+
 
   render() {
     return (
-
-      <div class="iphone-container">
-      <div class="iphone">
-        
-        <div class="top-bar">
-          <div class="speaker"></div> 
-          <div class="camera"></div> 
-          <div class="camera-2"></div> 
-        </div>
-        
-        <div class="screen">
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
-            <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
-            <input type="submit" value="Sign me up!" />
-          </form>
+      <div className="iphone-container">
+        <div className="iphone">
+          
+          <div className="top-bar">
+            <div className="speaker"></div> 
+            <div className="camera"></div> 
+            <div className="camera-2"></div> 
+          </div>
+          
+          <div className="screen">
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
+              <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
+              <input type="text" value={this.state.myCondition} onChange={this.handleChange} name="myCondition" />
+              <input type="submit" value="Sign me up!" />
+            </form>
           </div>
 
-          <div class="button">      
+          <div className="button">      
           </div>
 
         </div>
 
       </div>
     );
-  }
+  };
 }
 
 const mapStateToProps = state => {
   return {
-    user: state.currentUser
+    // user: state.currentUser
   }
 }
 
 const mapDispatchToProps = {
-    // signUp: signUp
+    signUp: signUp
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupScreen)
