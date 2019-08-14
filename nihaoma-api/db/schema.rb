@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.index ["trial_id"], name: "trialKey"
   end
 
+  create_table "diseases_users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "disease_id"
+  end
+
   create_table "doctors", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.text "doctor_name", limit: 4294967295
     t.text "ROLE", limit: 4294967295
@@ -141,8 +146,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
   end
 
   create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "disease_id"
+    t.integer "diseases_users_id"
     t.date "date_of_visit"
     t.string "visit_type", comment: "treatement visit, regular visit"
     t.string "diagnosis"

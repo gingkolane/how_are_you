@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../slices/userSlice.js'
 
-class signupLoginScreen extends Component {
+class SubmitScreen extends Component {
 
   state = {
-    user: {
       username: '',
       password: '', 
       myCondition: ''
-    }
   }
 
   handleChange = (e) => {
@@ -49,20 +47,6 @@ class signupLoginScreen extends Component {
           
           <div className="screen">
             <form onSubmit={this.handleSubmit}>
-              <label>
-                My name is:
-              <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
-              </label>
-
-              <label>
-                My password:
-                <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
-              </label>
-
-              <label>
-                The condition I have is:
-                <input type="text" value={this.state.myCondition} onChange={this.handleChange} name="myCondition" />
-              </label>
               <input type="submit" value="Sign me up!" />
             </form>
           </div>
@@ -87,5 +71,5 @@ const mapDispatchToProps = {
     signUp: signUp
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(signupLoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitScreen)
 

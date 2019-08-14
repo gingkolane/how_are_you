@@ -30,7 +30,7 @@ class App extends Component {
         <div className="title-box">
           <span className="title-text">You are with people who came down with the same thing...</span>
         </div>
-        <SignupContainer/>
+        <SignupContainer />
 
         <div className="title-box">
           <span className="title-text">You can learn more about your disease and treatment options, you get the same information as the doctors have </span>

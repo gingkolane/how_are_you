@@ -1,5 +1,5 @@
 class Visit < ApplicationRecord
-  belongs_to :user
+  belongs_to :diseases_user
 
   has_many :doctors_visits
   has_many :doctors, through: :doctors_visits

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import SignupScreen from "../screens/SignupScreen"
-import GroupSelectionScreen from "../screens/GroupSelectionScreen.js"
-
+import DiseaseSubgroupSelectionScreen from "../screens/DiseaseSubgroupSelectionScreen.js"
+import OfficalGroupSelectionScreen from "../screens/OfficalGroupSelectionScreen.js"
+import InterestGroupSelectionScreen from "../screens/InterestGroupSelectionScreen.js"
+import SubmitScreen from "../screens/SubmitScreen"
 
 class SignupContainer extends Component {
 
@@ -9,7 +11,10 @@ class SignupContainer extends Component {
     return ( 
       <div className="section-container">
         <SignupScreen />
-        <GroupSelectionScreen />
+        <DiseaseSubgroupSelectionScreen />
+        {/* <OfficalGroupSelectionScreen />
+        <InterestGroupSelectionScreen /> */}
+        <SubmitScreen/>
       </div>
      );
   }
