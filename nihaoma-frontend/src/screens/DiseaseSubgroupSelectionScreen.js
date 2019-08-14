@@ -7,6 +7,7 @@ import '../stylesheets/Phoneframe.css';
 class DiseaseSubgroupSelectionScreen extends Component {
   
   state = {
+    group_name: '',
 
     groups_user: {
       group_id: null,
@@ -16,8 +17,7 @@ class DiseaseSubgroupSelectionScreen extends Component {
   }
 
   handleChange = (e) => {
-    const chosenGroup = Group.find_by(group_name === e.target.value)
-    this.setState({group_id: chosenGroup.id})
+    this.setState({group_name: e.target.value})
   }
 
   handleOnClick = (e) => {
@@ -54,7 +54,7 @@ class DiseaseSubgroupSelectionScreen extends Component {
             <div>
               <h6>Here are some relevant groups you might be interested in:</h6>
               <h4>Disease sub-group:</h4>
-              <button onClick={this.handleOnClick} > +    Stage I/II lung cancer </button>
+              <button onClick={this.handleOnClick}  > +    Stage I/II lung cancer </button>
               
               <button onClick={this.handleOnClick}> +     Stage III lung cancer  </button>
              

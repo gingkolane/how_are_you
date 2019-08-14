@@ -11,7 +11,7 @@ class SignupContainer extends Component {
     return ( 
       <div className="section-container">
         <SignupScreen />
-        <DiseaseSubgroupSelectionScreen />
+        {/* <DiseaseSubgroupSelectionScreen /> */}
         {/* <OfficalGroupSelectionScreen />
         <InterestGroupSelectionScreen /> */}
         <SubmitScreen/>
