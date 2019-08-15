@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { createNewGroupsUser } from '../slices/groupsUserSlice.js'
+import { createNewGroupsUser } from '../../reduxstore/groupsUser.js'
 
-import '../stylesheets/Phoneframe.css';
+import '../../stylesheets/Phoneframe.css';
 
-class DiseaseSubgroupSelectionScreen extends Component {
+class ConditionSubgroupSelectionScreen extends Component {
   
   state = {
     group_name: '',
@@ -49,11 +49,11 @@ class DiseaseSubgroupSelectionScreen extends Component {
           
           <div className="screen">
             <div className="top-menu">
-              <h2>Disease Group Selection</h2>
+              <h2>Condition Group Selection</h2>
             </div>
             <div>
               <h6>Here are some relevant groups you might be interested in:</h6>
-              <h4>Disease sub-group:</h4>
+              <h4>Condition sub-group:</h4>
               <button onClick={this.handleOnClick}  > +    Stage I/II lung cancer </button>
               
               <button onClick={this.handleOnClick}> +     Stage III lung cancer  </button>
@@ -86,4 +86,4 @@ const mapDispatchToProps = {
   createNewGroupsUser: createNewGroupsUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiseaseSubgroupSelectionScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ConditionSubgroupSelectionScreen)

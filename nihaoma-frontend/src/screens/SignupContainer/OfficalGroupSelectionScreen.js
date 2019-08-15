@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import '../stylesheets/Phoneframe.css';
+import '../../stylesheets/Phoneframe.css';
 
-class InterestGroupSelectionScreen extends Component {
+class OfficalGroupSelectionScreen extends Component {
   state = {
     
     group: {
       group_id: null,
-      group_type: "interest_group",
+      group_type: "official_group",
       group_name: ''
     }
-  
+
   }
+
   handleChange = (e) => {
-    this.setState({ interest_group: e.target.value })
+    this.setState({ official_group: e.target.value })
   }
 
   render() { 
@@ -28,17 +29,15 @@ class InterestGroupSelectionScreen extends Component {
           
           <div className="screen">
             <div className="top-menu">
-              <h2>Interest groups:</h2>
+              <h2>Official support groups:</h2>
             </div>
             <div>
               <h6>Here are some relevant groups you might be interested in:</h6>
-              <h4>Special interest groups:</h4>
-              <button onClick={this.handleOnClick}> Meetup in New York City     + </button>
+              <h4>Official patient support organization:</h4>
+              <button onClick={this.handleOnClick}> Macmillan Cancer Support     + </button>
               
-              <button onClick={this.handleOnClick}> Cart-T immunotherapy for lung cancer     + </button>
-             
-              <button onClick={this.handleOnClick}> Mount Sinai doctors    + </button>
-           
+              <button onClick={this.handleOnClick}> Anticancer club - Apricot Grove    + </button>
+                        
             </div>
 
             
@@ -54,4 +53,4 @@ class InterestGroupSelectionScreen extends Component {
   }
 }
  
-export default InterestGroupSelectionScreen;
+export default OfficalGroupSelectionScreen;

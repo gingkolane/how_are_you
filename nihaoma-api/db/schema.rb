@@ -17,31 +17,32 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "diseases", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.text "disease_name", limit: 4294967295
+  create_table "conditions", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.text "condition_name", limit: 4294967295
   end
 
-  create_table "diseases_doctors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "disease_id", null: false
+  create_table "conditions_doctors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "condition_id", null: false
     t.integer "doctor_id", null: false
   end
 
-  create_table "diseases_treatments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "disease_id", null: false
+  create_table "conditions_treatments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "condition_id", null: false
     t.integer "treatment_id", null: false
   end
 
-  create_table "diseases_trials", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "disease_id"
+  create_table "conditions_trials", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "condition_id"
     t.integer "trial_id"
     t.text "NCT_ID", limit: 4294967295
-    t.index ["disease_id"], name: "diseaseKey"
+    t.index ["condition_id"], name: "conditionKey"
     t.index ["trial_id"], name: "trialKey"
   end
 
-  create_table "diseases_users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+  create_table "conditions_users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.string "myCondition"
     t.integer "user_id"
-    t.integer "disease_id"
+    t.integer "condition_id"
   end
 
   create_table "doctors", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "group_type", comment: "dis_group, interest_group, official_group"
-    t.bigint "disease_id"
+    t.bigint "condition_id"
     t.string "group_name"
     t.string "description"
     t.string "avatar_url"
@@ -142,18 +143,17 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.string "description"
     t.string "tag"
     t.datetime "time_registered"
-    t.string "myCondition"
   end
 
   create_table "visits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "diseases_users_id"
+    t.integer "conditions_users_id"
     t.date "date_of_visit"
     t.string "visit_type", comment: "treatement visit, regular visit"
     t.string "diagnosis"
   end
 
-  add_foreign_key "diseases_trials", "diseases", name: "diseaseKey", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "diseases_trials", "trials", name: "trialKey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "conditions_trials", "conditions", name: "conditionKey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "conditions_trials", "trials", name: "trialKey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "groups_users", "groups", name: "groupKey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "groups_users", "users", name: "userKey"
   add_foreign_key "treatments_trials", "treatments", name: "treatmentKey", on_update: :cascade, on_delete: :cascade

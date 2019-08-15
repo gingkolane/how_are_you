@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import DiseaseShowCurrent from '../screens/DiseaseShowCurrent.js';
-import DiseaseShowAll from '../screens/DiseaseShowAll.js'
+// import conditionShowCurrent from '../screens/ConditionShowCurrent.js';
+import ConditionShowAll from '../screens/InfoContainer/ConditionShowAll.js'
 
 
 class InfoContainer extends Component {
@@ -8,8 +8,8 @@ class InfoContainer extends Component {
   render() { 
     return ( 
       <div className="section-container">
-        {/* <DiseaseShowCurrent /> */}
-        <DiseaseShowAll />
+        {/* <ConditionShowCurrent /> */}
+        <ConditionShowAll />
       </div>
      );
   }

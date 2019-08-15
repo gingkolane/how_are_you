@@ -1,4 +1,4 @@
 class Trial < ApplicationRecord
-  has_many :diseases_trials
-  has_many :trials, through: :diseases_trials
+  has_many :conditions_trials
+  has_many :trials, through: :conditions_trials
 end

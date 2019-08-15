@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { signUp } from '../slices/userSlice.js'
+import { signUp } from '../../reduxstore/user.js'
 
 class SubmitScreen extends Component {
 

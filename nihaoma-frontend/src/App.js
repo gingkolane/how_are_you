@@ -33,7 +33,7 @@ class App extends Component {
         <SignupContainer />
 
         <div className="title-box">
-          <span className="title-text">You can learn more about your disease and treatment options, you get the same information as the doctors have </span>
+          <span className="title-text">You can learn more about your condition and treatment options, you get the same information as the doctors have </span>
         </div>
         <InfoContainer />
 
