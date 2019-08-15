@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../../reduxstore/user.js'
-import { createConditionsUser } from '../../reduxstore/conditionsUser.js'
+// import { createConditionsUser } from '../../reduxstore/conditionsUser.js'
 import { updateCurrentCondition } from '../../reduxstore/condition.js'
 
 class SignupScreen extends Component {
 
   state = {
-
       username: '',
       password: '',
-      myCondition: '',
-      condition_id: null ,
-      user_id: null
- 
+      myCondition: ''
   }
 
   handleChange = (e) => {
@@ -33,21 +29,18 @@ class SignupScreen extends Component {
         body: JSON.stringify({
           user: {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            myCondition: this.state.myCondition
           },
-          myCondition: this.state.myCondition
         })
       })
     .then(res => res.json())
     .then(data => {
       //save token to localStorage
       localStorage.token = data.token;
-      //setstate for user_id in conditionUser
-      // this.setState({ conditionsUser.user_id = data.user.id });
-      //dispatch user information to store
+      //dispatch user and condition information to its respective slice
       this.props.signUp({ user: data.user, token: data.token })
       this.props.updateCurrentCondition({ currentCondition: data.currentCondition })
-
     })
 
     //create a new conditionsUser joint table record, link user to its condition. 
@@ -119,7 +112,7 @@ class SignupScreen extends Component {
 
 const mapDispatchToProps = {
     signUp: signUp,
-    createConditionsUser: createConditionsUser,
+    // createConditionsUser: createConditionsUser,
     updateCurrentCondition: updateCurrentCondition
 }
 

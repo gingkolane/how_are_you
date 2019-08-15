@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized, except: :create
+  # before_action :authorized, except: :create
 
   # get "users"
   def index
@@ -20,8 +20,10 @@ class UsersController < ApplicationController
     # If user created successfully, server gives the user a json web token, user keeps this token in the browser, and use it in headers to authenticate itself when request information from server
     # If frontend is handled by rails, rails will setup a session(with user_id) to authenticate user and persist user connection. Now react handles frontend, getting data using json, we use json web token. 
     if user.valid?
-      current_condition = user.create_conditions_user(params["myCondition"])
+      current_condition = Condition.find_by(condition_name: params["user"]["myCondition"])
       
+      condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
+
       render json: {
         token: encode_token(user), 
         user: user, 
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   private
   # note:  rails api, don't need to use require.
   def user_params
-    params.require(:user).permit(:username, :password, :realname, :email, :mobile, 
+    params.require(:user).permit(:username, :password, :myCondition, :realname, :email, :mobile, 
     :status, :age, :gender, :city, :user_pict, :description, :tag)
   end
 

@@ -27,7 +27,7 @@ class ConditionsUsersController < ApplicationController
   private
 
   def conditionsUser_params
-    params.require(:conditionsUser).permit(:group_id, :user_id)
+    params.require(:conditionsUser).permit(:condition_id, :user_id)
   end
 
 end

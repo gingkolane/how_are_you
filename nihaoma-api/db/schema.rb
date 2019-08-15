@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
   end
 
   create_table "conditions_users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.string "myCondition"
     t.integer "user_id"
     t.integer "condition_id"
   end
@@ -132,6 +131,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "myCondition"
     t.string "realname"
     t.string "email"
     t.string "mobile"
