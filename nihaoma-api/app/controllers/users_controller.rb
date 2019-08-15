@@ -20,16 +20,12 @@ class UsersController < ApplicationController
     # If user created successfully, server gives the user a json web token, user keeps this token in the browser, and use it in headers to authenticate itself when request information from server
     # If frontend is handled by rails, rails will setup a session(with user_id) to authenticate user and persist user connection. Now react handles frontend, getting data using json, we use json web token. 
     if user.valid?
-      currentCondition = Condition.find_by(condition_name: params["myCondition"])
-      ConditionsUser.create(
-        condition_id: currentCondition.id, 
-        user_id: user.id, 
-        myCondition: currentCondition.condition_name)      
-      # byebug
+      current_condition = user.create_conditions_user(params["myCondition"])
+      
       render json: {
         token: encode_token(user), 
         user: user, 
-        currentCondition: currentCondition
+        currentCondition: current_condition
       }
     else
       render json: {errors: user.errors.full_messages}
