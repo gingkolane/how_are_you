@@ -1,6 +1,6 @@
 import { createSlice } from 'redux-starter-kit';
 
-const userSlice = createSlice({
+const user = createSlice({
   slice: 'user',
   initialState: { 
     currentUser: {},
@@ -9,14 +9,13 @@ const userSlice = createSlice({
 
   reducers: {
     signUp: (state, action) => { return { currentUser: action.payload.user, token: action.payload.token} }
-
   }
 
 });
 
 
 // Extract the action creators object and the reducer
-const { actions, reducer } = userSlice
+const { actions, reducer } = user
 // Extract and export each action creator by name
 export const { signUp } = actions
 // Export the reducer, either as a default or named export

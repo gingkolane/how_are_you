@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../../reduxstore/user.js'
-// import { createConditionsUser } from '../../reduxstore/conditionsUser.js'
-import { updateCurrentCondition } from '../../reduxstore/condition.js'
+import { getCurrentCondition } from '../../reduxstore/condition.js'
 
 class SignupScreen extends Component {
 
+  //did not use require(:user) in api user_controller, so we don't need to have user key here
+  //this set up is convenient for using [e.target.name]: e.target.value to setState
   state = {
-      username: '',
-      password: '',
-      myCondition: ''
+    username: '',
+    password: '',
+    myCondition: ''
   }
 
   handleChange = (e) => {
-    this.setState({ 
-      [e.target.name]: e.target.value,
-     })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
@@ -26,40 +25,17 @@ class SignupScreen extends Component {
         headers: {
           "Content-Type":"application/json",
           "Accepts":"application/json"},
-        body: JSON.stringify({
-          user: {
-            username: this.state.username,
-            password: this.state.password,
-            myCondition: this.state.myCondition
-          },
-        })
+        body: JSON.stringify(this.state)
       })
     .then(res => res.json())
     .then(data => {
+    //fetch returns data are what render json give us, token, user, currentCondtion
       //save token to localStorage
       localStorage.token = data.token;
-      //dispatch user and condition information to its respective slice
+      //dispatch user and condition to its respective store slice
       this.props.signUp({ user: data.user, token: data.token })
-      this.props.updateCurrentCondition({ currentCondition: data.currentCondition })
+      this.props.getCurrentCondition({ currentCondition: data.currentCondition })
     })
-
-    //create a new conditionsUser joint table record, link user to its condition. 
-    // First find condition id from myCondition input, get back foundCondition, send foundCondition to store's currentCondition
-    // fetch("http://localhost:3000/conditions/findCondition",{ 
-    //   method: "post",
-    //   headers: {
-    //     "Content-Type":"application/json",
-    //     "Accepts":"application/json"},
-    //   body: JSON.stringify(this.state.conditionsUser.myCondition)
-    // })
-    // .then(res => res.json())
-    // .then(foundCondition => {
-    //   //dispatch condition to store's currentCondition
-    //   this.setState({ condition_id: foundCondition.id, })
-    //   this.props.createConditionsUser({ conditionsUser: conditionsUser })
-    //   this.props.updateCurrentCondition({ currentCondition: foundCondition })
-    // })
-
   };
 
 
@@ -104,16 +80,9 @@ class SignupScreen extends Component {
   };
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     // user: state.currentUser
-//   }
-// }
-
 const mapDispatchToProps = {
     signUp: signUp,
-    // createConditionsUser: createConditionsUser,
-    updateCurrentCondition: updateCurrentCondition
+    getCurrentCondition: getCurrentCondition
 }
 
 export default connect(null, mapDispatchToProps)(SignupScreen)
