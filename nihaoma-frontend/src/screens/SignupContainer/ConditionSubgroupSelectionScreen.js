@@ -11,7 +11,7 @@ class ConditionSubgroupSelectionScreen extends Component {
 
     groups_user: {
       group_id: null,
-      user_id: this.props.current_user.id
+      // user_id: this.props.current_user.id
     }
 
   }

@@ -37,10 +37,10 @@ class App extends Component {
         </div>
         <InfoContainer />
 
-        <div className="title-box">
+        {/* <div className="title-box">
           <span className="title-text">You can share your experiences and knowledges with others...</span>
         </div>
-        <CircleContainer />
+        <CircleContainer /> */}
 
         <div className="title-box">
           <span className="title-text">You can find the best doctors in the fields...</span>
