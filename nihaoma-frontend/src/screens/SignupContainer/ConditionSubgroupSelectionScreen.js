@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createNewGroupsUser } from '../../reduxstore/groupsUser.js'
 import PhoneFrame from "../../components/Phoneframe"
-
 import '../../stylesheets/Phoneframe.css';
 
 class ConditionSubgroupSelectionScreen extends Component {
@@ -36,44 +35,25 @@ class ConditionSubgroupSelectionScreen extends Component {
       this.props.createNewGroupsUser({ groups_user: data.groups_user })
     })
   };
-  
-  render() { 
-    return ( 
-      <div className="iphone-container">
-        <div className="iphone">
-          
-          <div className="top-bar">
-            <div className="speaker"></div> 
-            <div className="camera"></div> 
-            <div className="camera-2"></div> 
-          </div>
-          
-          <div className="screen">
-            <div className="top-menu">
-              <h2>Condition Group Selection</h2>
-            </div>
-            <div>
-              <h6>Here are some relevant groups you might be interested in:</h6>
-              <h4>Condition sub-group:</h4>
-              <button onClick={this.handleOnClick}  > +    Stage I/II lung cancer </button>
+
+  screenContent = (
+    <>
+     <h6>Here are some relevant groups you might be interested in:</h6>
+      <h4>Condition sub-group:</h4>
+
+      <button onClick={this.handleOnClick}  > +    Stage I/II lung cancer </button>
               
-              <button onClick={this.handleOnClick}> +     Stage III lung cancer  </button>
+      <button onClick={this.handleOnClick}> +     Stage III lung cancer  </button>
              
-              <button onClick={this.handleOnClick}> +      Stage IV lung cancer    </button>
-           
-            </div>
+      <button onClick={this.handleOnClick}> +      Stage IV lung cancer    </button>
+    </>
+  )
 
-            
-          </div>
-
-          <div className="button">      
-          </div>
-
-        </div>
-
-      </div>
-     );
+  render() {
+    return <PhoneFrame titleText = { "Condition Group Selection" } 
+     screenContent={this.screenContent}/>
   }
+
 }
  
 

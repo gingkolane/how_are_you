@@ -35,50 +35,41 @@ class SignupScreen extends Component {
       localStorage.token = data.token;
       //dispatch user and condition to its respective store slice
       this.props.signUp({ user: data.user, token: data.token })
-      this.props.getCurrentCondition(data.currentCondition)
+      this.props.getCurrentCondition( {currentCondition: data.currentCondition} )
+      // this.props.getCurrentCondition(data.currentCondition)
     })
   };
 
+  screenContent = (
+    <>
+      <form onSubmit={this.handleSubmit}>
+      <label>
+        My name is:
+      <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
+      <br/>
+      </label>
 
-  render() {
-    return (
-      <div className="iphone-container">
-        <div className="iphone">
-          
-          <div className="top-bar">
-            <div className="speaker"></div> 
-            <div className="camera"></div> 
-            <div className="camera-2"></div> 
-          </div>
-          
-          <div className="screen">
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                My name is:
-              <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
-              </label>
+      <label>
+        My password:
+        <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
+        <br/>
+      </label>
 
-              <label>
-                My password:
-                <input type="text" value={this.state.password} onChange={this.handleChange} name="password" />
-              </label>
+      <label>
+        The condition I have is:
+        <input type="text" value={this.state.myCondition} onChange={this.handleChange} name="myCondition" />
+        <br/>
+      </label>
+      <input type="submit" value="Sign me up!" />
+        </form>
+    </>
+  )
+ 
+   render() {
+     return <PhoneFrame titleText = { "Welcome" } 
+       screenContent={this.screenContent}/>
+   }
 
-              <label>
-                The condition I have is:
-                <input type="text" value={this.state.myCondition} onChange={this.handleChange} name="myCondition" />
-              </label>
-              <input type="submit" value="Sign me up!" />
-            </form>
-          </div>
-
-          <div className="button">      
-          </div>
-
-        </div>
-
-      </div>
-    );
-  };
 }
 
 const mapDispatchToProps = {
