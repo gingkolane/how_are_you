@@ -11,10 +11,10 @@ class SignupContainer extends Component {
     return ( 
       <div className="section-container">
         <SignupScreen />
-        {/* <ConditionSubgroupSelectionScreen /> */}
-        {/* <OfficalGroupSelectionScreen />
-        <InterestGroupSelectionScreen /> */}
-        <SubmitScreen/>
+        {/* <ConditionSubgroupSelectionScreen />
+        <OfficalGroupSelectionScreen />
+        <InterestGroupSelectionScreen />  */}
+        {/* <SubmitScreen/> */}
       </div>
      );
   }

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import conditionShowCurrent from '../screens/ConditionShowCurrent.js';
 import ConditionShowAll from '../screens/InfoContainer/ConditionShowAll.js'
-
+import ConditionTOCPlus from '../screens/InfoContainer/ConditionTOCPlus.js'
+import ConditionCurrentTreatment from '../screens/InfoContainer/ConditionShowAll.js'
+import ConditionClinicalTrials from '../screens/InfoContainer/ConditionShowAll.js'
 
 class InfoContainer extends Component {
 
@@ -9,7 +11,11 @@ class InfoContainer extends Component {
     return ( 
       <div className="section-container">
         {/* <ConditionShowCurrent /> */}
-        <ConditionShowAll />
+        <ConditionTOCPlus />
+
+        {/* <ConditionCurrentTreatment />
+        <ConditionClinicalTrials />
+        <ConditionShowAll /> */}
       </div>
      );
   }

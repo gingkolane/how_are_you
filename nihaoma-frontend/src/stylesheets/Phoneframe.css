@@ -32,6 +32,7 @@
   font-size: 1vw;
 }
 
+
 .button {
 /*   background-color: green; */
   border: 0.1vw solid grey;
@@ -91,8 +92,3 @@
     justify-content: center;
     align-items: center;
   }
-
-.selection_button {
-
-
-}
