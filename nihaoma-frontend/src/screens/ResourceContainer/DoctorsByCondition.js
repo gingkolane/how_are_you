@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
+import PhoneFrame from "../../components/Phoneframe"
 
 class DoctorsByCondition extends Component {
 
-  render() {
-    return (
-      <div className="iphone-container" onClick={() => this.props.getRandomCondition({chloe: [], eric: "2"})}>
-        <div className="iphone">
-          <div className="top-bar">
-            <div className="speaker"></div> 
-            <div className="camera"></div> 
-            <div className="camera-2"></div> 
-          </div>
-          
-          <div className="screen">
-            <h4>This is doctors by condition</h4>
-          </div>
+  screenContent = (
+    <>
+     <h4>Summary</h4>
+       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
+     <h4>Causes</h4>
+       <p> Lorem ipsum dolor sit amet um dui non, lorem. Utullamcorper neque n</p>
+     <h4>Signs and symptoms</h4>
+       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
+    </>
+  )
 
-          <div className="button"></div>
-        </div>
-      </div>
-    ) 
+ render() {
+   return <PhoneFrame titleText = { "This is doctors by condition" } 
+     screenContent={this.screenContent}/>
   }
+  
 }
 
 export default DoctorsByCondition

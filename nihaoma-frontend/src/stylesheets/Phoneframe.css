@@ -21,6 +21,8 @@
   border-radius: 2vw;
   margin: 1vw
 }
+
+
 .screen {
 /*   background-color: blue; */
   box-sizing: border-box;
@@ -28,9 +30,35 @@
   width: 90%;
   height: 80%;
   /* padding: 1vw; */
-  overflow: scroll;
+  /* overflow: scroll; */
   font-size: 1vw;
   position: relative;
+}
+
+
+.screen-title {
+  /* position: relative; */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: olivedrab;
+  height: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 12px
+}
+
+.bottom-nav {
+/* position: relative; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: olivedrab;
+  height: 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -43,6 +71,7 @@
   position: absolute;
   bottom: 0.7vw;
 }
+
 .top-bar {
 /*   position: relative; */
   position: absolute;
@@ -82,14 +111,4 @@
   border-radius: 100%;
 }
 
-.top-menu {
-    /* position: relative; */
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: olivedrab;
-    height: 3.5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+

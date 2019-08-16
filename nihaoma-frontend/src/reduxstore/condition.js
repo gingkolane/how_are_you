@@ -11,7 +11,7 @@ const condition = createSlice({
 //this should be called actions
   reducers: {
     getConditions: (state, action) => { return {...state, all: action.payload} },
-    getCurrentCondition: (state, action) => { return {...state, currentCondition: action.payload.currentCondition}}
+    getCurrentCondition: (state, action) => { return {...state, currentCondition: action.payload}}
   },
 
 });

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PhoneFrame from "../../components/Phoneframe"
 import Overview from './Overview'
 import Diagnosis from './Diagnosis'
 import StandardTreatment from './StandardTreatment'

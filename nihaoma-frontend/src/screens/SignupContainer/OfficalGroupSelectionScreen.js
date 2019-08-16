@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../stylesheets/Phoneframe.css';
+import PhoneFrame from "../../components/Phoneframe"
 
 class OfficalGroupSelectionScreen extends Component {
   state = {

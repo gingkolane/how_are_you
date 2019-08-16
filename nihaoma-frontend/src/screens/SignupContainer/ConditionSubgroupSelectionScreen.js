@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { createNewGroupsUser } from '../../reduxstore/groupsUser.js'
+import PhoneFrame from "../../components/Phoneframe"
 
 import '../../stylesheets/Phoneframe.css';
 

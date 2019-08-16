@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../../reduxstore/user.js'
 import { getCurrentCondition } from '../../reduxstore/condition.js'
+import PhoneFrame from "../../components/Phoneframe"
 
 class SignupScreen extends Component {
 
@@ -34,7 +35,7 @@ class SignupScreen extends Component {
       localStorage.token = data.token;
       //dispatch user and condition to its respective store slice
       this.props.signUp({ user: data.user, token: data.token })
-      this.props.getCurrentCondition({ currentCondition: data.currentCondition })
+      this.props.getCurrentCondition(data.currentCondition)
     })
   };
 

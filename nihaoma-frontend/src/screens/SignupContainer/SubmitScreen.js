@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../../reduxstore/user.js'
+import PhoneFrame from "../../components/Phoneframe"
 
 class SubmitScreen extends Component {
 
