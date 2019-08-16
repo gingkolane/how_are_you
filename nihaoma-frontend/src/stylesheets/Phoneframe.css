@@ -27,9 +27,10 @@
   border: 0.1vw solid grey;
   width: 90%;
   height: 80%;
-  padding: 1vw;
+  /* padding: 1vw; */
   overflow: scroll;
   font-size: 1vw;
+  position: relative;
 }
 
 
@@ -84,10 +85,10 @@
 .top-menu {
     /* position: relative; */
     position: absolute;
-    top: 5vw;
-    width: 90%;
+    top: 0;
+    width: 100%;
     background-color: olivedrab;
-    height: 4.5vw;
+    height: 3.5vw;
     display: flex;
     justify-content: center;
     align-items: center;

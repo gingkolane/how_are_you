@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PhoneFrame from "../../components/Phoneframe"
 
 class AddADoctorVisit extends Component {
 
@@ -22,6 +23,7 @@ class AddADoctorVisit extends Component {
     ) 
   }
 }
+
 
 export default AddADoctorVisit
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/Phoneframe.css';
 
 class Phoneframe extends Component {
+
   // state = {  }
   render() { 
     return ( 
@@ -13,12 +14,20 @@ class Phoneframe extends Component {
             <div className="camera"></div> 
             <div className="camera-2"></div> 
           </div>
-          
+
           <div className="screen">
+            <div className="top-menu">
+                {this.props.menucontent}
+            </div>
 
-            
+          
+              {this.props.content}
+          
+
+            <div className="bottom-nav">
+              <i class="fas fa-info-circle"></i>
+            </div>
           </div>
-
           <div className="button">      
           </div>
 
