@@ -5,7 +5,7 @@ import SignupContainer from './containers/SignupContainer'
 import InfoContainer from './containers/InfoContainer'
 import ResourceContainer from './containers/ResourceContainer'
 import CircleContainer from './containers/CircleContainer'
-import VisitContainer from './containers/VisitContainer'
+import MedicalRecordContainer from './containers/MedicalRecordContainer'
 import MedicineContainer from './containers/MedicineContainer'
 
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
         <div className="title-box">
           <span className="title-text">You can keep track of your doctor visits and medical records</span>
         </div>
-        <VisitContainer />
+        <MedicalRecordContainer />
 
         <div className="title-box">
           <span className="title-text">And keep track of all the medicines in your cupboards and drawers...</span>
