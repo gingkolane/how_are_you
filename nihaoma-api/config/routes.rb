@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/profile", to: "users#profile"
   post "/conditions/findCondition", to: "conditions#findCondition"
 
-  resources :visits
+  resources :records
   resources :users
   resources :trials
   resources :treatments

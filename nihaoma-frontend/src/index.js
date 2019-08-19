@@ -6,6 +6,8 @@ import { configureStore } from 'redux-starter-kit';
 //
 import conditionReducer from './reduxstore/condition'
 import userReducer from './reduxstore/user'
+import doctorReducer from './reduxstore/doctor'
+
 // import conditionsUserReducer from './reduxstore/conditionsUser.js'
 // import groupsUserReducer from './reduxstore/groupsUser.js'
 
@@ -15,6 +17,7 @@ import App from './App';
 const rootReducer = combineReducers({
   condition: conditionReducer,
   user: userReducer,
+  doctor: doctorReducer
   // conditionsUser: conditionsUserReducer
 });
 

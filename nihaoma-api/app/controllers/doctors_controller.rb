@@ -10,6 +10,13 @@ class DoctorsController < ApplicationController
     render json: doctor
   end 
 
+  def doctorsByCondition(condition)
+    byebug
+    doctors = Doctor.all
+    doctors.select {|doctor| doctor.conditions.include?(condition)} 
+    render json: doctors
+  end 
+
 
 
 

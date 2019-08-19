@@ -1,13 +1,13 @@
-class VisitsController < ApplicationController
+class RecordsController < ApplicationController
 
   def index
-    visits = Visit.all
-    render json: visits
+    records = Record.all
+    render json: records
   end
 
   def show
-    visit = Visit.find(params[:id])
-    render json: visit
+    record = Record.find(params[:id])
+    render json: record
   end 
 
 end
