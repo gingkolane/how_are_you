@@ -6,7 +6,8 @@ const doctor = createSlice({
   
   initialState: { 
     myDoctors: [], 
-    selectedDoctor: {}
+    selectedDoctor: {},
+    doctorsOfSelectedCondition: []
   },
 
   reducers: {    

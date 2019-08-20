@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 
 class OneDoctorInfo extends Component {
 
-  screenContent = (
-    <>
-     <h4>Summary</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-     <h4>Causes</h4>
-       <p> Lorem ipsum dolor sit amet um dui non, lorem. Utullamcorper neque n</p>
-     <h4>Signs and symptoms</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-    </>
-  )
+  render() {
 
- render() {
-   return <PhoneFrame titleText = { "Information on one doctor" } 
-     screenContent={this.screenContent}/>
-  }
+    const screenContent = <p>{this.props.selectedDoctor.doctor_name}</p>
+
+    return <PhoneFrame titleText = "Information on one doctor" 
+      screenContent={screenContent}/>
+    }
 
 }
 
-export default OneDoctorInfo
+
+const mapStateToProps = state => { 
+  return { selectedDoctor: state.doctor.selectedDoctor} 
+}
+
+export default connect(mapStateToProps)(OneDoctorInfo)
+
 

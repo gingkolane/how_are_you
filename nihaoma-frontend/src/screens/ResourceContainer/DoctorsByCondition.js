@@ -1,46 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { getDoctors } from '../../reduxstore/doctor.js'
-// import { getselectedCondition } from '../../reduxstore/condition.js'
-
+import { getSelectedDoctor} from '../../reduxstore/doctor.js'
 import PhoneFrame from "../../components/Phoneframe"
 
 class DoctorsByCondition extends Component {
 
-  //get current condition from store, then look for doctors treating this condition
-  componentDidMount() {
-    fetch("http://localhost:3000/doctors")
-    .then(res => res.json())
-    .then(doctors => {      
-      // this.props.doctorsByCondition
-    })
-  }
+  handleClick = (e) => {
+    //select clicked doctor
+      const doctor_id = parseInt(e.target.id)
+      const selectedDoctor = this.props.doctorsOfSelectedCondition.find(doctor => doctor.id === doctor_id )
+      this.props.getSelectedDoctor(selectedDoctor) 
+    }
 
-  screenContent = (
-    <>
-      this.props.currentDoctor
-      {/* <p key={doctor.id}> {doctor.doctor_name}</p>) */}
-    </>
-  )
 
- render() {
-   return <PhoneFrame titleText = { "This is doctors by condition" } 
-     screenContent={this.screenContent}/>
-  }
+  render() {
+
+    const screenContent = this.props.doctorsOfSelectedCondition.map(doctor => 
+      <p key={doctor.id} id={doctor.id} onClick={this.handleClick}> {doctor.doctor_name}</p>)
+    
+    return <PhoneFrame titleText = "Doctors treating this condition" 
+      screenContent={screenContent}/>
+  
+    }
   
 }
 
 const mapStateToProps = state => {
-  return { selectedCondition: state.selectedCondition }
+  return { doctorsOfSelectedCondition: state.doctor.doctorsOfSelectedCondition } 
 }
 
-
-// this place you can get functions like this
 const mapDispatchToProps = {
-  // getDoctors,
-  // getselectedCondition
+  getSelectedDoctor
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DoctorsByCondition)
-
-
