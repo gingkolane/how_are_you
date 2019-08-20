@@ -12,7 +12,7 @@ import SignupContainer from './containers/SignupContainer'
 import InfoContainer from './containers/InfoContainer'
 import ResourceContainer from './containers/ResourceContainer'
 // import CircleContainer from './containers/CircleContainer'
-import MedicalRecordContainer from './containers/MedicalRecordContainer'
+import RecordContainer from './containers/RecordContainer'
 import MedicineContainer from './containers/MedicineContainer'
 
 class App extends Component {
@@ -27,9 +27,9 @@ class App extends Component {
       .then(resp => resp.json())
       .then(user => {
         this.props.persistUserWithToken(user)
-        this.props.getMyConditions( user.myConditions )
-        this.props.getMyRecords( user.myRecords )
-        this.props.getMyTreatments( user.myTreatments )
+        this.props.getMyConditions(user.myConditions)
+        this.props.getMyRecords(user.myRecords)
+        this.props.getMyTreatments(user.myTreatments )
         this.props.getMyDoctors( user.myDoctors )
       })
     }
@@ -75,7 +75,7 @@ class App extends Component {
         <div className="title-box">
           <span className="title-text">You can keep track of your doctor visits and medical records</span>
         </div>
-        <MedicalRecordContainer />
+        <RecordContainer />
 
         <div className="title-box">
           <span className="title-text">And keep track of all the medicines in your cupboards and drawers...</span>

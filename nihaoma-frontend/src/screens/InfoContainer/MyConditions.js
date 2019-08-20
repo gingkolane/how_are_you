@@ -27,7 +27,7 @@ class MyConditions extends Component {
     }
 
     screenContent = () => {
-      if(this.props.myConditions.length) {
+      if(this.props.myConditions) {
         this.props.myConditions.map(condition => {
           return (<p key={condition.id} id={condition.id} onClick={this.handleClick}> 
             {condition.condition_name} </p>)

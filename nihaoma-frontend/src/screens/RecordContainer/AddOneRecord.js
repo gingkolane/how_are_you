@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 
-class AddADoctorVisit extends Component {
+class AddOneRecord extends Component {
 
   state = {
     date_of_visit: '',
@@ -98,5 +98,5 @@ const mapStateToProps = state => {
   return { currentUser: state.user.currentUser } 
 }
 
-export default connect(mapStateToProps)(AddADoctorVisit)
+export default connect(mapStateToProps)(AddOneRecord)
 

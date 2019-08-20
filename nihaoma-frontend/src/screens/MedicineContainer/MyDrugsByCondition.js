@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PhoneFrame from "../../components/Phoneframe"
 
-class AllDrugsByCondition extends Component {
+class MyDrugsByCondition extends Component {
 
   screenContent = (
     <>
@@ -20,5 +20,5 @@ class AllDrugsByCondition extends Component {
   }
 }
 
-export default AllDrugsByCondition
+export default MyDrugsByCondition
 

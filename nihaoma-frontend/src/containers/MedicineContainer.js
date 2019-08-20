@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 // import Phoneframe from '../components/Phoneframe.js';
-import AddADrug from '../screens/MedicineContainer/AddADrug'
+import AddOneDrug from '../screens/MedicineContainer/AddOneDrug'
 import OneDrugInfo from '../screens/MedicineContainer/OneDrugInfo'
-import AllDrugsByCondition from '../screens/MedicineContainer/AllDrugsByCondition'
+import MyDrugsByCondition from '../screens/MedicineContainer/MyDrugsByCondition'
 
 class MedicineContainer extends Component {
   state = {  }
   render() { 
     return ( 
       <div className="section-container">
-        <AddADrug />
+        <AddOneDrug />
         <OneDrugInfo />
-        <AllDrugsByCondition />
+        <MyDrugsByCondition />
       </div>
      );
   }

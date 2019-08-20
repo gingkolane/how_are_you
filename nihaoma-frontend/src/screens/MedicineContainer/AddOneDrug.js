@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PhoneFrame from "../../components/Phoneframe"
 
-class VisitsHistoryOfAllConditions extends Component {
+class AddOneDrug extends Component {
 
   screenContent = (
     <>
@@ -14,12 +14,11 @@ class VisitsHistoryOfAllConditions extends Component {
     </>
   )
 
-  render() {
-   return <PhoneFrame titleText = { "VisitsHistoryOfAllConditions" } 
+ render() {
+   return <PhoneFrame titleText = { "Add A Drug" } 
      screenContent={this.screenContent}/>
   }
-
 }
 
-export default VisitsHistoryOfAllConditions
+export default AddOneDrug
 
