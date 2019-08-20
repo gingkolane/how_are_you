@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
-// import conditionShowCurrent from '../screens/ConditionShowCurrent.js';
-import ConditionShowAll from '../screens/InfoContainer/ConditionShowAll.js'
+import MyConditions from '../screens/InfoContainer/MyConditions.js'
 import ConditionTOCPlus from '../screens/InfoContainer/ConditionTOCPlus.js'
-import ConditionCurrentTreatment from '../screens/InfoContainer/ConditionShowAll.js'
-import ConditionClinicalTrials from '../screens/InfoContainer/ConditionShowAll.js'
 
 class InfoContainer extends Component {
 
   render() { 
     return ( 
       <div className="section-container">
-        {/* <ConditionShowCurrent /> */}
+        <MyConditions />
         <ConditionTOCPlus />
-
-        {/* <ConditionCurrentTreatment />
-        <ConditionClinicalTrials />
-        <ConditionShowAll /> */}
       </div>
      );
   }

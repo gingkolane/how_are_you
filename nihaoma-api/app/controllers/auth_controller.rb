@@ -7,26 +7,25 @@ class AuthController < ApplicationController
     user = User.find_by(username: user_params[:username])
     # if username and password both match those in the database
     if user && user.authenticate(user_params[:password])
-      render json: {token: encode_token(user)}
+      myConditions = user.conditions
+      render json: {user: user, token: encode_token(user), myConditions: myConditions}
     else
       render json: { errors: ["Wrong username or password bud. Sorry!"] }, status: :unprocessable_entity
     end
   end
 
   def persist
-    if token
-        render json: current_user
+    if token 
+      myConditions = current_user.conditions
+      render json: { currentUser:current_user, myConditions: myConditions}
+      # render json: current_user
     end
-  end
+  end  
+
 
   private
-  # note: for rails api, don't need to use require.
   def user_params
     params.permit(:username, :password)
   end
 
 end
-
-
-# :realname, :email, :mobile, 
-# :status, :age, :gender, :city, :user_pict, :description, :tag

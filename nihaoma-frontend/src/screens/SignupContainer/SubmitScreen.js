@@ -37,7 +37,7 @@ class SubmitScreen extends Component {
   screenContent = (
     <>
       <form onSubmit={this.handleSubmit}>
-        <input type="submit" value="Sign me up!" />
+        <input type="submit" value="Show me my groups, please. " />
       </form>
    </>
   )

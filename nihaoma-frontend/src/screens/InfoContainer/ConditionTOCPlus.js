@@ -3,7 +3,7 @@ import PhoneFrame from "../../components/Phoneframe"
 import Overview from './Overview'
 import Diagnosis from './Diagnosis'
 import StandardTreatment from './StandardTreatment'
-import LatestTreatments from './LatestTreatments'
+import TrialsOfCondition from './TrialsOfCondition'
 
 class ConditionTOCPlus extends Component {
 
@@ -24,7 +24,7 @@ class ConditionTOCPlus extends Component {
       case 'StandardTreatment':
         return <StandardTreatment />
       case 'LatestTreatments':
-        return <LatestTreatments />
+        return <TrialsOfCondition />
       default:
         return <Overview />
     }

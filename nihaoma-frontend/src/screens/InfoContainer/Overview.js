@@ -1,29 +1,29 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 
 class Overview extends Component {
 
-  // static handleChange = () => {
-  // }
-
-  // handleChange=
-
   screenContent = (
      <>
       <h4>Summary</h4>
-        <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
+        <p> {this.props.selectedCondition.condition_name} </p>
       <h4>Causes</h4>
-        <p> Lorem ipsum dolor sit amet um dui non, lorem. Utullamcorper neque n</p>
+        <p> {this.props.selectedCondition.condition_name} </p>
       <h4>Signs and symptoms</h4>
-        <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
+        <p> {this.props.selectedCondition.condition_name} </p>
     </>
   )
 
   render() {
-    return <PhoneFrame titleText = { "Overview" } 
+    return <PhoneFrame titleText = { `${this.props.selectedCondition.condition_name} Overview` } 
       screenContent={this.screenContent}/>
   }
 }
 
-export default Overview
+const mapStateToProps = state => {
+  return { selectedCondition: state.condition.selectedCondition }
+}
+
+export default connect(mapStateToProps)(Overview)
 

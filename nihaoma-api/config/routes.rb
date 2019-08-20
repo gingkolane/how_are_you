@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :groups_users
-  post "/login", to: "auth#create"
+
+  post '/login', to: 'auth#create'
+  get '/auth', to: 'auth#persist'
+
   post "/signup", to: "users#create"
   get "/profile", to: "users#profile"
-  post "/conditions/findCondition", to: "conditions#findCondition"
 
   resources :records
   resources :users

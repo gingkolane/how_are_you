@@ -7,13 +7,14 @@ class ConditionsController < ApplicationController
 
   def show
     condition = Condition.find(params[:id])
-    render json: condition
-  end 
 
-  def findCondition(condition)
-    byebug
-    foundCondition = Condition.find_by(condition_name: condition)
-    render json: foundCondition
-  end 
+    render json: {
+      condition: condition,
+      treatmentsOfCondition: condition.treatments,
+      trialsOfCondition: condition.trials,
+      doctorsOfCondition: condition.doctors
+    }
+
+  end
 
 end

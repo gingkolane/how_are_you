@@ -3,27 +3,28 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { combineReducers } from 'redux';
 import { configureStore } from 'redux-starter-kit';
-//
+import './stylesheets/index.css';
+import App from './App';
+//import reducers
 import conditionReducer from './reduxstore/condition'
 import userReducer from './reduxstore/user'
 import doctorReducer from './reduxstore/doctor'
+import treatmentReducer from './reduxstore/treatment'
+import trialReducer from './reduxstore/trial'
 
-// import conditionsUserReducer from './reduxstore/conditionsUser.js'
-// import groupsUserReducer from './reduxstore/groupsUser.js'
-
-import './stylesheets/index.css';
-import App from './App';
 
 const rootReducer = combineReducers({
   condition: conditionReducer,
   user: userReducer,
-  doctor: doctorReducer
-  // conditionsUser: conditionsUserReducer
+  doctor: doctorReducer,
+  treatment: treatmentReducer,
+  trial: trialReducer
 });
 
 // create and configure store use redux-starter-kit
 const store = configureStore({ reducer: rootReducer }); 
 
+// Provide store to App
 ReactDOM.render((
   <Provider store={store}>
       <App />

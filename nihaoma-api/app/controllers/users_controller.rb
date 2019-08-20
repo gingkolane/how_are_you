@@ -22,17 +22,23 @@ class UsersController < ApplicationController
     if user.valid?
       current_condition = Condition.find_by(condition_name: params["user"]["myCondition"])
       
+      # TODO: Here we want to redesign this when we're ready to take in multiple
+      # conditions upon creating a user
       condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
+
+      myConditions = user.conditions
 
       render json: {
         token: encode_token(user), 
         user: user, 
-        currentCondition: current_condition
+        myConditions: myConditions
       }
     else
       render json: {errors: user.errors.full_messages}
     end
   end
+
+
 
   # get "/profile", view current user's own information
   def profile

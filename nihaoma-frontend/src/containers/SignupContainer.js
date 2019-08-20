@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SignupScreen from "../screens/SignupContainer/SignupScreen"
+import WelcomeScreen from "../screens/SignupContainer/WelcomeScreen"
 import ConditionSubgroupSelectionScreen from "../screens/SignupContainer/ConditionSubgroupSelectionScreen.js"
 import OfficalGroupSelectionScreen from "../screens/SignupContainer/OfficalGroupSelectionScreen.js"
 import InterestGroupSelectionScreen from "../screens/SignupContainer/InterestGroupSelectionScreen.js"
@@ -10,7 +10,7 @@ class SignupContainer extends Component {
   render() { 
     return ( 
       <div className="section-container">
-        <SignupScreen />
+        <WelcomeScreen />
         <ConditionSubgroupSelectionScreen />
         <OfficalGroupSelectionScreen />
         <InterestGroupSelectionScreen />  */}

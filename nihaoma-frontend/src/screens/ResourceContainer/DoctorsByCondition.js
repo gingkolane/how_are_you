@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getDoctors } from '../../reduxstore/doctor.js'
-import { getCurrentCondition } from '../../reduxstore/condition.js'
+// import { getselectedCondition } from '../../reduxstore/condition.js'
 
 import PhoneFrame from "../../components/Phoneframe"
 
@@ -18,7 +18,7 @@ class DoctorsByCondition extends Component {
 
   screenContent = (
     <>
-      this.state.doctorsByCondition.map(doctor => 
+      this.props.currentDoctor
       {/* <p key={doctor.id}> {doctor.doctor_name}</p>) */}
     </>
   )
@@ -33,14 +33,14 @@ class DoctorsByCondition extends Component {
 }
 
 const mapStateToProps = state => {
-  return { doctorsByCondition: state.doctor.doctorsByCondition }
+  return { selectedCondition: state.selectedCondition }
 }
 
 
 // this place you can get functions like this
 const mapDispatchToProps = {
   getDoctors,
-  getCurrentCondition
+  // getselectedCondition
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DoctorsByCondition)

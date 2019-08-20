@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { persistUserWithToken } from './reduxstore/user'
+import { getMyConditions } from './reduxstore/condition'
+
 import './stylesheets/App.css';
 import Typist from 'react-typist';
 import SignupContainer from './containers/SignupContainer'
@@ -10,6 +14,22 @@ import MedicineContainer from './containers/MedicineContainer'
 
 class App extends Component {
   
+  //get user information using token, if localStorage has a token
+  componentDidMount() {
+    if (localStorage.token) {
+      fetch("http://localhost:3000/auth", {
+        // headers: { Authorization: "bearer " + localStorage.token }
+        headers: { Authorization: localStorage.token }
+      })
+      .then(resp => resp.json())
+      .then(user => {
+        console.log(user)
+        this.props.persistUserWithToken(user)
+        this.props.getMyConditions( { myConditions: user.myConditions} )
+      })
+    }
+  }
+
   render() { 
     return ( 
       <>
@@ -65,4 +85,11 @@ class App extends Component {
   }
 }
  
-export default App;
+// const mapStateToProps = state => ({ user: state });
+
+const mapDispatchToProps = {
+  persistUserWithToken,
+  getMyConditions
+};
+
+export default connect(null,mapDispatchToProps)(App)

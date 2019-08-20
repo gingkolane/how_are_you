@@ -1,26 +1,22 @@
 import React, { Component } from 'react'
 import PhoneFrame from "../../components/Phoneframe"
+import { connect } from 'react-redux'
 
 class StandardTreatment extends Component {
 
-  screenContent = (
-    <>
-     <h4>Summary</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-     <h4>Causes</h4>
-       <p> Lorem ipsum dolor sit amet um dui non, lorem. Utullamcorper neque n</p>
-     <h4>Signs and symptoms</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-    </>
-  )
+  render() {
 
- render() {
-   return <PhoneFrame titleText = { "Common Medicines" } 
-     screenContent={this.screenContent}/>
+    const screenContent = this.props.treatmentsOfSelectedCondition.map(treatment => 
+      <p key={treatment.id} id={treatment.id} onClick={this.handleClick}> {treatment.treatment_name}</p>)
+    
+    return <PhoneFrame titleText = { "standard treatments" } 
+      screenContent={screenContent}/>
+
   }
-
 }
 
+const mapStateToProps = state => {
+  return { treatmentsOfSelectedCondition: state.treatment.treatmentsOfSelectedCondition }
+}
 
-export default StandardTreatment
-
+export default connect(mapStateToProps)(TreatmentsOfCondition)
