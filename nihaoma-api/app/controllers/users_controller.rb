@@ -26,12 +26,13 @@ class UsersController < ApplicationController
       # conditions upon creating a user
       condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
 
-      myConditions = user.conditions
-
       render json: {
         token: encode_token(user), 
         user: user, 
-        myConditions: myConditions
+        myConditions: user.conditions
+        myRecords: user.records
+        myTreatments: user.treatments
+        myDoctors: user.doctors
       }
     else
       render json: {errors: user.errors.full_messages}

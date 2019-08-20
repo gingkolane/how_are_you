@@ -11,7 +11,5 @@ class Condition < ApplicationRecord
 
   has_many :conditions_treatments
   has_many :treatments, through: :conditions_treatments
-  
-  # need to double check condition-group relationship
-  # has_many :groups
-end
+
+end 

@@ -10,4 +10,6 @@ class TreatmentsController < ApplicationController
     render json: treatment
   end 
 
+
+
 end

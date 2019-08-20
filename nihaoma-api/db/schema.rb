@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.integer "condition_id"
   end
 
-  create_table "doctors", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+  create_table "doctors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.text "doctor_name", limit: 4294967295
     t.text "ROLE", limit: 4294967295
     t.text "FACILITY_NAME", limit: 4294967295
@@ -82,10 +82,8 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "conditions_user_id"
     t.integer "doctor_id"
-    t.integer "records_treatment_id"
     t.date "date_of_visit"
-    t.string "visit_type", comment: "treatement visit, regular visit"
-    t.string "diagnosis"
+    t.string "myCondition"
   end
 
   create_table "records_treatments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|

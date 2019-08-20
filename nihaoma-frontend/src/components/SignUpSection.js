@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { signUp } from '../reduxstore/user.js'
 import { getMyConditions } from '../reduxstore/condition.js'
+import { getMyRecords } from '../reduxstore/record.js'
+import { getMyTreatments } from '../reduxstore/treatment.js'
+import { getMyDoctors } from '../reduxstore/doctor.js'
 
 class SignUpSection extends Component {
 
@@ -38,6 +41,9 @@ class SignUpSection extends Component {
       //dispatch user and condition to its respective store slice
       this.props.signUp({ user: data.user, token: data.token })
       this.props.getMyConditions( {myConditions: data.myConditions} )
+      this.props.getMyRecords( { myRecords: data.myRecords} )
+      this.props.getMyTreatments( { myTreatments: data.myTreatments} )
+      this.props.getMyDoctors( { myDoctors: data.myDoctors} )
     })
 
     //after fetch, clear the form
@@ -80,8 +86,11 @@ class SignUpSection extends Component {
 }
 
 const mapDispatchToProps = {
-    signUp: signUp,
-    getMyConditions: getMyConditions
+    signUp,
+    getMyConditions,
+    getMyRecords,
+    getMyTreatments,
+    getMyDoctors
   }
 
 export default connect(null, mapDispatchToProps)(SignUpSection)
