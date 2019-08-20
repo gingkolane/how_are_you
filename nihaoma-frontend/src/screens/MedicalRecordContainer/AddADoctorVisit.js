@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
-import { getMyRecords } from '../../reduxstore/record.js';
 
 class AddADoctorVisit extends Component {
 
@@ -34,21 +33,16 @@ class AddADoctorVisit extends Component {
         user_id: this.props.currentUser.id
       })
     })
-    
-    //get all record of the currentUser
-    fetch("http://localhost:3000/records")
-    .then(resp => resp.json())
-    .then(data => {getMyRecords(data)})
 
     // after fetch, clear the form
-    // this.setState({
-    //   date_of_visit: '',
-    //   myCondition: '',
-    //   doctor_name: '',
-    //   FACILITY_NAME: '', 
-    //   CITY: '',
-    //   treatment_name: ''
-    //   })
+    this.setState({
+      date_of_visit: '',
+      myCondition: '',
+      doctor_name: '',
+      FACILITY_NAME: '', 
+      CITY: '',
+      treatment_name: ''
+      })
 
   };
 
@@ -101,12 +95,8 @@ class AddADoctorVisit extends Component {
 }
 
 const mapStateToProps = state => { 
-  return { currentUser: state.user.currentUser} 
+  return { currentUser: state.user.currentUser } 
 }
 
-const mapDispatchToProps= { 
-  getAllRecordsOfUser
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddADoctorVisit)
+export default connect(mapStateToProps)(AddADoctorVisit)
 

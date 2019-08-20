@@ -11,7 +11,7 @@ const record = createSlice({
   },
 
   reducers: {
-    getMyRecords: (state, action) => { return {...state, myRecords: action.payload.myRecords}},
+    getMyRecords: (state, action) => { return {...state, myRecords: action.payload}},
     getSelectedRecord: (state, action) => { return {...state, selectedRecord: action.payload}},
   },
 

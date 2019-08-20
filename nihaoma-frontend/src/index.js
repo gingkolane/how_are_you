@@ -11,14 +11,15 @@ import userReducer from './reduxstore/user'
 import doctorReducer from './reduxstore/doctor'
 import treatmentReducer from './reduxstore/treatment'
 import trialReducer from './reduxstore/trial'
-
+import recordReducer from './reduxstore/record'
 
 const rootReducer = combineReducers({
   condition: conditionReducer,
   user: userReducer,
   doctor: doctorReducer,
   treatment: treatmentReducer,
-  trial: trialReducer
+  trial: trialReducer, 
+  record: recordReducer
 });
 
 // create and configure store use redux-starter-kit

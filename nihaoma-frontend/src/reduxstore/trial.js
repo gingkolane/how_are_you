@@ -10,7 +10,7 @@ const trial = createSlice({
   },
 
   reducers: {
-    getSelectedTrial: (state, action) => { return {...state, selectedTrial: action.payload.selectedTrial}},
+    getSelectedTrial: (state, action) => { return {...state, selectedTrial: action.payload}},
     getTrialsOfSelectedCondition: (state, action) => { return {...state, trialsOfSelectedCondition: action.payload}}
   },
 

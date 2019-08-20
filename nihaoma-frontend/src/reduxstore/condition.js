@@ -10,7 +10,7 @@ const condition = createSlice({
   },
 
   reducers: {
-    getMyConditions: (state, action) => { return {...state, myConditions: action.payload.myConditions}},
+    getMyConditions: (state, action) => { return {...state, myConditions: action.payload}},
     getSelectedCondition: (state, action) => { return {...state, selectedCondition: action.payload}}
   },
 

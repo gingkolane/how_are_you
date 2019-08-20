@@ -11,7 +11,7 @@ const doctor = createSlice({
   },
 
   reducers: {    
-    getMyDoctors: (state, action) => { return {...state, myDoctors: action.payload.myDoctors}},
+    getMyDoctors: (state, action) => { return {...state, myDoctors: action.payload}},
     getSelectedDoctor: (state, action) => { return {...state, selectedDoctor: action.payload}},
     getDoctorsOfSelectedCondition: (state, action) => { return {...state, doctorsOfSelectedCondition: action.payload}}
   },

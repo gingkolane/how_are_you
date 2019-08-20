@@ -1,24 +1,21 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 
 class VisitsHistoryOfOneCondition extends Component {
 
-  screenContent = (
-    <>
-     <h4>Summary</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-     <h4>Causes</h4>
-       <p> Lorem ipsum dolor sit amet um dui non, lorem. Utullamcorper neque n</p>
-     <h4>Signs and symptoms</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-    </>
-  )
-
  render() {
-   return <PhoneFrame titleText = { "Visits History Of One Condition" } 
-     screenContent={this.screenContent}/>
-  }
+console.log("this.props in record history", this.props)
+    // const screenContent = this.props.myRecords.map(record => 
+    //   <p key={record.id} id={record.id} onClick={this.handleClick}> `{record.date_of_vist}: {record.myCondition}`</p>)
+return null
+  //  return <PhoneFrame titleText = { "Visits History Of One Condition" } 
+  //    screenContent={screenContent}/>
+  // }
+}
+}
+const mapStateToProps = state => { 
+  return { myRecords: state.record.myRecords } 
 }
 
-export default VisitsHistoryOfOneCondition
-
+export default connect(mapStateToProps)(VisitsHistoryOfOneCondition)

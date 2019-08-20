@@ -42,7 +42,6 @@ class logInSection extends Component {
       this.props.getMyRecords( { myRecords: data.myRecords} )
       this.props.getMyTreatments( { myTreatments: data.myTreatments} )
       this.props.getMyDoctors( { myDoctors: data.myDoctors} )
-
     })
 
     //after fetch, clear the form

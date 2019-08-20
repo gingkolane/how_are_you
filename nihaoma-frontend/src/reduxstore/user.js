@@ -10,9 +10,9 @@ const user = createSlice({
   },
 
   reducers: {
-    signUp: (state, action) => { return { currentUser: action.payload.user, token: action.payload.token } },
+    signUp: (state, action) => { return {...state, currentUser: action.payload.user, token: action.payload.token } },
     logIn: (state, action) => { return { ...state, currentUser: action.payload.user, token: action.payload.token } },
-    persistUserWithToken: (state, action) => { return { ...state, currentUser: action.payload.currentUser, myConditions:action.payload.myConditions }}
+    persistUserWithToken: (state, action) => { return { ...state, currentUser: action.payload.currentUser }}
   }
 
 });

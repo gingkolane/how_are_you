@@ -29,9 +29,9 @@ class UsersController < ApplicationController
       render json: {
         token: encode_token(user), 
         user: user, 
-        myConditions: user.conditions
-        myRecords: user.records
-        myTreatments: user.treatments
+        myConditions: user.conditions,
+        myRecords: user.records,
+        myTreatments: user.treatments,
         myDoctors: user.doctors
       }
     else

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { persistUserWithToken } from './reduxstore/user'
 import { getMyConditions } from './reduxstore/condition'
+import { getMyRecords } from './reduxstore/record'
+import { getMyTreatments } from './reduxstore/treatment'
+import { getMyDoctors } from './reduxstore/doctor'
 
 import './stylesheets/App.css';
 import Typist from 'react-typist';
@@ -25,6 +28,9 @@ class App extends Component {
       .then(user => {
         this.props.persistUserWithToken(user)
         this.props.getMyConditions( { myConditions: user.myConditions} )
+        this.props.getMyRecords( { myConditions: user.myRecords} )
+        this.props.getMyTreatments( { myConditions: user.myTreatments} )
+        this.props.getMyDoctors( { myConditions: user.myDoctors} )
       })
     }
   }
@@ -88,7 +94,10 @@ class App extends Component {
 
 const mapDispatchToProps = {
   persistUserWithToken,
-  getMyConditions
+  getMyConditions,
+  getMyRecords,
+  getMyTreatments,
+  getMyDoctors
 };
 
 export default connect(null,mapDispatchToProps)(App)
