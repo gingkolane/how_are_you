@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PhoneFrame from "../../components/Phoneframe"
 import { connect } from 'react-redux'
 
-class StandardTreatment extends Component {
+class TreatmentsOfCondition extends Component {
 
   render() {
 

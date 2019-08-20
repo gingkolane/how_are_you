@@ -8,7 +8,7 @@ import Typist from 'react-typist';
 import SignupContainer from './containers/SignupContainer'
 import InfoContainer from './containers/InfoContainer'
 import ResourceContainer from './containers/ResourceContainer'
-import CircleContainer from './containers/CircleContainer'
+// import CircleContainer from './containers/CircleContainer'
 import MedicalRecordContainer from './containers/MedicalRecordContainer'
 import MedicineContainer from './containers/MedicineContainer'
 
@@ -23,7 +23,6 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(user => {
-        console.log(user)
         this.props.persistUserWithToken(user)
         this.props.getMyConditions( { myConditions: user.myConditions} )
       })
@@ -34,7 +33,7 @@ class App extends Component {
     return ( 
       <>
         <div className="title-box">
-          <Typist stdTypingDelay='250' className="title-text">
+          <Typist className="title-text" stdTypingDelay="250" >
             This is an app supporting you, <br/>
             <br/>
             when you are fragile. <br/>

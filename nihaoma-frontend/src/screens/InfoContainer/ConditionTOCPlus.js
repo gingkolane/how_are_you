@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PhoneFrame from "../../components/Phoneframe"
 import Overview from './Overview'
 import Diagnosis from './Diagnosis'
-import StandardTreatment from './StandardTreatment'
+import TreatmentsOfCondition from './TreatmentsOfCondition'
 import TrialsOfCondition from './TrialsOfCondition'
 
 class ConditionTOCPlus extends Component {
@@ -21,9 +21,9 @@ class ConditionTOCPlus extends Component {
         return <Overview />
       case "Diagnosis":
         return <Diagnosis />
-      case 'StandardTreatment':
-        return <StandardTreatment />
-      case 'LatestTreatments':
+      case 'TreatmentsOfCondition':
+        return <TreatmentsOfCondition />
+      case 'TrialsOfCondition':
         return <TrialsOfCondition />
       default:
         return <Overview />
@@ -34,8 +34,8 @@ class ConditionTOCPlus extends Component {
     <>
       <button onClick={this.handleClick} name="Overview"> Overview </button>
       <button onClick={this.handleClick} name="Diagnosis"> Diagnosis </button>
-      <button onClick={this.handleClick} name="StandardTreatment"> Standard treatment</button>
-      <button onClick={this.handleClick} name="LatestTreatments"> Latest treatments</button>
+      <button onClick={this.handleClick} name="TreatmentsOfCondition"> Standard treatments</button>
+      <button onClick={this.handleClick} name="TrialsOfCondition"> Latest Development</button>
       <button onClick={this.handleClick} name="Care"> Care </button>
    </>
   )

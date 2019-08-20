@@ -33,7 +33,6 @@ class logInSection extends Component {
       //save token to localStorage
       localStorage.token = data.token;
       //dispatch user and condition to its respective store slice
-      console.log("this is inside login fetch", data)
       this.props.logIn({ user: data.user, token: data.token })
       this.props.getMyConditions( { myConditions: data.myConditions} )
     })

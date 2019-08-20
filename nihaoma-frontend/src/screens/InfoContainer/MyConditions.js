@@ -20,21 +20,18 @@ class MyConditions extends Component {
     //fetch treatments, trials and doctors data based on currentCondion id, and store the fetched data in redux store
     fetch(`http://localhost:3000/conditions/${selectedCondition.id}`)
     .then(resp => resp.json())
-    .then(data => {
-      this.props.getTreatmentsOfSelectedCondition({ treatmentsOfSelectedCondition: data.treatmentsOfCondition}),
-      this.props.getDoctorsOfSelectedCondition({ doctorsOfSelectedCondition: data.doctorsOfCondition}),
-      this.props.getTrialsOfSelectedCondition({ trialsOfSelectedCondition: data.trialsOfCondition})
+    .then(payload => { this.props.getTreatmentsOfSelectedCondition(payload.treatmentsOfCondition);
+      this.props.getDoctorsOfSelectedCondition(payload.doctorsOfCondition);
+      this.props.getTrialsOfSelectedCondition(payload.trialsOfCondition)
       })
-
     }
 
+  render() {
 
-  render() {    
-    
     const screenContent = this.props.myConditions.map(condition => 
       <p key={condition.id} id={condition.id} onClick={this.handleClick}> {condition.condition_name}</p>)
     
-    return <PhoneFrame titleText = { "My Conditions" } 
+    return <PhoneFrame titleText = "My Conditions" 
       screenContent={screenContent}/>
   }
 
