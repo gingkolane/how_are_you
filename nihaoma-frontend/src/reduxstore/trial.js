@@ -16,7 +16,6 @@ const trial = createSlice({
 
 });
 
-
 const { actions, reducer } = trial
 export const { getSelectedTrial, getTrialsOfSelectedCondition } = actions
 

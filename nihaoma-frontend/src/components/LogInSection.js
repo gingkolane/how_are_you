@@ -38,10 +38,10 @@ class logInSection extends Component {
       localStorage.token = data.token;
       //dispatch user and condition to its respective store slice
       this.props.logIn({ user: data.user, token: data.token })
-      this.props.getMyConditions( { myConditions: data.myConditions} )
-      this.props.getMyRecords( { myRecords: data.myRecords} )
-      this.props.getMyTreatments( { myTreatments: data.myTreatments} )
-      this.props.getMyDoctors( { myDoctors: data.myDoctors} )
+      this.props.getMyConditions(data.myConditions)
+      this.props.getMyRecords(data.myRecords)
+      this.props.getMyTreatments(data.myTreatments)
+      this.props.getMyDoctors(data.myDoctors)
     })
 
     //after fetch, clear the form
@@ -77,8 +77,8 @@ class logInSection extends Component {
 }
 
 const mapDispatchToProps = {
-    logIn: logIn,
-    getMyConditions: getMyConditions,
+    logIn,
+    getMyConditions,
     getMyRecords,
     getMyTreatments,
     getMyDoctors

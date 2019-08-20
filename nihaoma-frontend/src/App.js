@@ -27,10 +27,10 @@ class App extends Component {
       .then(resp => resp.json())
       .then(user => {
         this.props.persistUserWithToken(user)
-        this.props.getMyConditions( { myConditions: user.myConditions} )
-        this.props.getMyRecords( { myConditions: user.myRecords} )
-        this.props.getMyTreatments( { myConditions: user.myTreatments} )
-        this.props.getMyDoctors( { myConditions: user.myDoctors} )
+        this.props.getMyConditions( user.myConditions )
+        this.props.getMyRecords( user.myRecords )
+        this.props.getMyTreatments( user.myTreatments )
+        this.props.getMyDoctors( user.myDoctors )
       })
     }
   }
