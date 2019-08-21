@@ -40,7 +40,7 @@ class SignUpSection extends Component {
       localStorage.token = data.token;
       //dispatch user and condition to its respective store slice
       this.props.signUp({ user: data.user, token: data.token })
-      this.props.getMyConditions( data.myConditions )
+      this.props.getMyConditions(data.myConditions)
       this.props.getMyRecords(data.myRecords)
       this.props.getMyTreatments(data.myTreatments)
       this.props.getMyDoctors(data.myDoctors)

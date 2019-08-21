@@ -32,7 +32,8 @@ class AddOneRecord extends Component {
         ...this.state,
         user_id: this.props.currentUser.id
       })
-    })
+    }).then(resp => resp.json())
+    .then(data => { this.props.getCurrentCondition(data.condition)})
 
     // after fetch, clear the form
     this.setState({
@@ -98,5 +99,10 @@ const mapStateToProps = state => {
   return { currentUser: state.user.currentUser } 
 }
 
+// const mapDispatchToProps= { 
+//   getCurrentCondition
+// }
+
 export default connect(mapStateToProps)(AddOneRecord)
 
+// mapDispatchToProps

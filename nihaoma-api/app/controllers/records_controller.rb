@@ -1,9 +1,8 @@
 class RecordsController < ApplicationController
 
   def index
-    byebug
-    records = Record.find(
-    render json: myRecords
+    records = Record.all
+    render json: records
   end
 
   def show
@@ -41,6 +40,7 @@ class RecordsController < ApplicationController
     
     render json: { 
       record: record,
+      condition: record.condition,
       treatments: record.treatments
     }
 
