@@ -3,20 +3,54 @@ import PhoneFrame from "../../components/Phoneframe"
 
 class AddOneDrug extends Component {
 
-  screenContent = (
+  state = {
+    drug_name:''
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleSubmit = (e) => {
+    
+    e.preventDefault();
+
+    //submit user form data to user table to create new user, then get a token back, save to local storage and dispatch user information to store
+    fetch("http://localhost:3000/drugs",{ 
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json",
+          "Accepts":"application/json"},
+        body: JSON.stringify(this.state)
+      })
+
+    //after fetch, clear the form
+    this.setState({
+      drug_name:''
+    })
+  };
+
+ render() {
+
+  const screenContent = (
     <>
-     <h4>Summary</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
-     <h4>Causes</h4>
-       <p> Lorem ipsum dolor sit amet um dui non, lorem. Utullamcorper neque n</p>
-     <h4>Signs and symptoms</h4>
-       <p> Phasellus isi gravida, elementum dui non, lorem. Utullamcorper neque non sapien vestibulum sollicitudin.</p>
+      <form onSubmit={this.handleSignUpSubmit}>
+        <h4>Enter the drug name:</h4>
+        <label>
+          <input type="text" value={this.state.treatment_name} onChange={this.handleChange} name="treatment_name" />
+          <br/>
+        </label>
+
+        <h4>Or scan the code on the medicine box</h4>
+          <img src='../../assets/qrcode.png' alt="qrcode" height="42" width="42"/> 
+        <br/>
+        <input type="submit" value="Add a drug" />
+      </form>
     </>
   )
 
- render() {
    return <PhoneFrame titleText = { "Add A Drug" } 
-     screenContent={this.screenContent}/>
+     screenContent={screenContent}/>
   }
 }
 

@@ -13,10 +13,11 @@ const record = createSlice({
   reducers: {
     getMyRecords: (state, action) => { return {...state, myRecords: action.payload}},
     getSelectedRecord: (state, action) => { return {...state, selectedRecord: action.payload}},
+    getCreatedRecord: (state, action) => { return {...state, createdRecord: action.payload}}
   },
 
 });
 
 const { actions, reducer } = record;
-export const { getMyRecords, getSelectedRecord} = actions;
+export const { getMyRecords, getCreatedRecord, getSelectedRecord} = actions;
 export default reducer

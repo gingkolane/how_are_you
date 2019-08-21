@@ -24,11 +24,18 @@ class Phoneframe extends Component {
           </div>
 
           <div className="bottom-nav">
-            <span>info</span>
-            <span>resources</span>
-            <span>Circle</span>
-            <span>Records</span>
-            <span>Medicine</span>
+            <i className="fas fa-info-circle fa-3x" ></i>
+            {/* <i class="far fa-hospital fa-3x"></i> */}
+            <i class="fas fa-clinic-medical fa-3x"></i>
+            {/* <i class="fas fa-hospital fa-3x"></i> */}
+            {/* <i class="fas fa-dice-d20 fa-3x"></i> */}
+            {/* <i class="far fa-comments fa-4x"></i> */}
+            <i class="far fa-heart fa-4x"></i>
+            {/* <i class="far fa-clipboard fa-3x"></i> */}
+            <i class="fas fa-paste fa-3x"></i>
+            {/* <i class="fas fa-notes-medical fa-3x"></i> */}
+            {/* <i class="fas fa-prescription-bottle-alt fa-3x"></i> */}
+            <i class="fas fa-capsules fa-3x"></i>
           </div>
 
           <div className="button">      

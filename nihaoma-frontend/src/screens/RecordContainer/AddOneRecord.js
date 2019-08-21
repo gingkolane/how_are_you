@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
+import { getCreatedRecord } from '../../reduxstore/record.js'
 
 class AddOneRecord extends Component {
 
@@ -33,7 +34,7 @@ class AddOneRecord extends Component {
         user_id: this.props.currentUser.id
       })
     }).then(resp => resp.json())
-    .then(data => { this.props.getCurrentCondition(data.condition)})
+    .then(data => { this.props.getCreatedRecord(data)})
 
     // after fetch, clear the form
     this.setState({
@@ -99,10 +100,8 @@ const mapStateToProps = state => {
   return { currentUser: state.user.currentUser } 
 }
 
-// const mapDispatchToProps= { 
-//   getCurrentCondition
-// }
+const mapDispatchToProps= { 
+  getCreatedRecord
+}
 
-export default connect(mapStateToProps)(AddOneRecord)
-
-// mapDispatchToProps
+export default connect(mapStateToProps, mapDispatchToProps)(AddOneRecord)

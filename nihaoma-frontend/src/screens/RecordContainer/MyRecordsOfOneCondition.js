@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
+import { getCreatedRecord } from '../../reduxstore/record.js'
 
 class MyRecordsOfOneCondition extends Component {
 
-  screenContent = (
-    <>
-    <h1>This is my records on one condition</h1>
-    {this.props.myRecords.map(record => 
-    <p key={record.id} id={record.id} onClick={this.handleClick}> `{record.date_of_vist}: {record.myCondition}`</p>)}
-    </>
-  )
-
- render() {
-  console.log("this.props inside MyRecordsOfOneCondition", this.props)
-   return <PhoneFrame titleText = {" Records Of One Condition"} 
-     screenContent={this.screenContent}/>
-  }
+  render() {
+    const screenContent = this.props.myRecords.map(record => 
+      <p key={record.id} >{record.date_of_visit}: {record.myCondition} </p> )
+      
+     return <PhoneFrame titleText = { "MyRecords" } screenContent={screenContent}/>
+    }
 }
 
 const mapStateToProps = state => { 
   return { myRecords: state.record.myRecords } 
 }
 
-export default connect(mapStateToProps)(MyRecordsOfOneCondition)
+const mapDispatchToProps= { 
+  getCreatedRecord
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyRecordsOfOneCondition)

@@ -55,9 +55,9 @@
   bottom: 0;
   width: 100%;
   background-color: olivedrab;
-  height: 2.5vw;
+  height: 3vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 

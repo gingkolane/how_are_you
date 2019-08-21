@@ -38,7 +38,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps= { 
   getSelectedTrial,
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrialsOfCondition)
