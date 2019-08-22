@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 import Overview from './Overview'
 import Diagnosis from './Diagnosis'
@@ -26,7 +27,7 @@ class ConditionTOCPlus extends Component {
       case 'TrialsOfCondition':
         return <TrialsOfCondition />
       default:
-        return <TreatmentsOfCondition />
+        return <Overview />
     }
   }
 
@@ -41,9 +42,10 @@ class ConditionTOCPlus extends Component {
   )
 
   render() {
+   
     return (
       <>
-        <PhoneFrame titleText = { "Overview" } screenContent={this.screenContent}/>
+        <PhoneFrame titleText = "Overview" screenContent={this.screenContent}/>
         { this.switchScreen(this.state.screen) }
       </>
     )
@@ -51,4 +53,11 @@ class ConditionTOCPlus extends Component {
 
 }
 
-export default ConditionTOCPlus
+
+const mapStateToProps = state => {
+  return { myConditions: state.condition.myConditions }
+}
+
+export default connect(mapStateToProps)(ConditionTOCPlus)
+
+// export default ConditionTOCPlus

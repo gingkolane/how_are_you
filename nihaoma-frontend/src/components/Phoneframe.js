@@ -12,7 +12,7 @@ class Phoneframe extends Component {
           <div className="top-bar">
             <div className="speaker"></div> 
             <div className="camera"></div> 
-            <div className="camera-2"></div> 
+        
           </div>
 
           <div className="screen">

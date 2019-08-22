@@ -23,17 +23,16 @@ class MyRecords extends Component {
 
   render() {
     
-    // const screenContent = this.props.getMyRecordsInFull.map(record => { 
-    //     return (
-    //       <ul>
-    //         <h4 key={record.condition.id} id={record.condition.id} onClick={this.handleConditionClick}>{record.condition.condition_name}</h4>
-    //         <li key={record.id} id={record.id} onClick={this.handleRecordClick}>{record.date_of_visit}:{record.doctor.doctor_name}</li>
-    //       </ul>
-    //     )
-    // })
-    console.log(this.props);
+    const screenContent = this.props.myRecordsInFull.slice(0, 4).map(record => { 
+        return (
+          <ul>
+            <h4 key={record.condition.id} id={record.condition.id} onClick={this.handleConditionClick}>{record.condition.condition_name}</h4>
+            <li key={record.id} id={record.id} onClick={this.handleRecordClick}>{record.date_of_visit}:{record.doctor.doctor_name}</li>
+          </ul>
+        )
+    })
     
-   return <PhoneFrame titleText = "My medical records" screenContent={""}/>
+   return <PhoneFrame titleText = "My medical records" screenContent={screenContent}/>
   }
 
 }

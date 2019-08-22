@@ -36,18 +36,10 @@ class MyConditions extends Component {
       })
     }
 
-    // screenContent = () => {
-    //   if(this.props.myConditions) {
-    //     this.props.myConditions.map(condition => {
-    //       return (<p key={condition.id} id={condition.id} onClick={this.handleClick}> 
-    //         {condition.condition_name} </p>)
-    //     })
-    //   }
-    // }
   render() {
 
     const screenContent = this.props.myConditions.map(condition => 
-      <p key={condition.id} id={condition.id} onClick={this.handleClick}> {condition.condition_name}</p>)
+      <h3 key={condition.id} id={condition.id} onClick={this.handleClick}> {condition.condition_name}</h3>)
     
     return <PhoneFrame titleText = "My Conditions" screenContent={screenContent}/>
   }
@@ -57,7 +49,6 @@ class MyConditions extends Component {
 const mapStateToProps = state => {
   return { myConditions: state.condition.myConditions }
 }
-
 
 const mapDispatchToProps = {
   getSelectedCondition,
