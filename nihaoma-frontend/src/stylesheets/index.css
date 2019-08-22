@@ -18,9 +18,38 @@ code {
 ul {
   font-size: 12px;
   font-weight: 600;
+  padding: 0 20px;
+}
+
+ul h2 {
+  font-size: 14px;
+  color: #262626;
+  padding: 0;
+  margin: 1px;
 }
 
 li{
   font-size: 10px;
   font-weight: 400;
+  margin-left: 18px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 0;
+  text-align: left;
+}
+
+form input {
+  margin: 5px 0;
+}
+
+form input[type="submit"] {
+  /* background-color: red; */
+  width: 50%;
+  text-align: center;
+  align-self: center;
 }

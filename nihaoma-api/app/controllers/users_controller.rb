@@ -55,7 +55,7 @@ class UsersController < ApplicationController
         myTreatments: user.treatments, 
         condition_with_treatment: treatments_for_my_conditions,
         myDoctors: user.doctors,
-        myrecords_infull: myrecords_infull
+        myRecordsInFull: myrecords_infull
       }
     else
       render json: {errors: user.errors.full_messages}

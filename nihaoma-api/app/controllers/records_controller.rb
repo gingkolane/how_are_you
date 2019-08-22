@@ -30,11 +30,12 @@ class RecordsController < ApplicationController
   end 
 
   def create
+    
     # find condition from input condition_name, strict
     condition = Condition.find_by(condition_name: params[:myCondition])
     # define user who created the record
-    # user = User.find_by(user.id: params[:user_id]
-    user = current_user
+    user = User.find(params[:user_id])
+    # user = current_user
 
     # if this user has entered this condition before, attach this record to pre-existing condition_user
     input_conditions_user = ConditionsUser.find_by(condition_id: condition.id, user_id: params[:user_id])
@@ -71,11 +72,13 @@ class RecordsController < ApplicationController
     end 
     
     render json: { 
-      current_record: {
-        record: record,
+      newly_created_record: {
+        user: user,
+        date_of_visit: record.date_of_visit,
         condition: record.condition,
+        doctor: record.doctor,
         treatments: record.treatments
-        }
+      },
 
       myrecords_infull: myrecords_infull
     }

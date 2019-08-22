@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 
-class OneDoctorInfo extends Component {
+class DisplayOneDoctor extends Component {
 
   render() {
 
@@ -18,7 +18,6 @@ class OneDoctorInfo extends Component {
     </>
     )
 
-
     return <PhoneFrame titleText = "Doctor information" 
       screenContent={screenContent}/>
     }
@@ -30,6 +29,6 @@ const mapStateToProps = state => {
   return { selectedDoctor: state.doctor.selectedDoctor} 
 }
 
-export default connect(mapStateToProps)(OneDoctorInfo)
+export default connect(mapStateToProps)(DisplayOneDoctor)
 
 

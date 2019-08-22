@@ -74,6 +74,8 @@
   height: inherit;
   font-size: 1vw;
   text-align-last: left;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 .screen-content-scroll {

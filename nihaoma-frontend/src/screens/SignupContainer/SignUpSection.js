@@ -39,11 +39,12 @@ class SignUpSection extends Component {
     //fetch returns data are what render json give us, token, user, currentCondtion
       //save token to localStorage
       localStorage.token = data.token;
+      
       //dispatch user and condition to its respective store slice
       this.props.signUp({ user: data.user, token: data.token })
       this.props.getMyConditions(data.myConditions)
       this.props.getMyRecords(data.myRecords)
-      this.props.getMyRecordsInFull(data.myRecordsInFull)
+      this.props.getMyRecordsInFull(data.myrecords_infull)
       this.props.getMyTreatments(data.myTreatments)
       this.props.getMyDoctors(data.myDoctors)
       this.props.getMyTreatmentsGroupByConditions(data.condition_with_treatment)
@@ -62,24 +63,18 @@ class SignUpSection extends Component {
      return (
       <div className="box-inside-screen">
         <form onSubmit={this.handleSignUpSubmit}>
-          <h4>Sign Up</h4>
-          <label>
-            Username   
-          <input type="text" value={this.state.username} onChange={this.handleSignUpChange} name="username" />
+          
+          
+             
+          <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleSignUpChange} name="username" />
           <br/>
-          </label>
-
-          <label>
-            Password   
-            <input type="text" value={this.state.password} onChange={this.handleSignUpChange} name="password" />
+        
+            <input placeholder="Password" type="text" value={this.state.password} onChange={this.handleSignUpChange} name="password" />
             <br/>
-          </label>
-
-          <label>
-            The condition I have is:
-            <input type="text" value={this.state.myCondition} onChange={this.handleSignUpChange} name="myCondition" />
+      
+            <input placeholder="Condition I have" type="text" value={this.state.myCondition} onChange={this.handleSignUpChange} name="myCondition" />
             <br/>
-          </label>
+          
           <input type="submit" value="Sign Up" />
         </form>
       </div>

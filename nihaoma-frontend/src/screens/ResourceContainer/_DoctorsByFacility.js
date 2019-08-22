@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PhoneFrame from "../../components/Phoneframe"
 import { connect } from 'react-redux'
-import { getSelectedDoctor} from '../../reduxstore/doctor.js'
+import { getSelectedDoctor } from '../../reduxstore/doctor.js'
 
 
-class DoctorsByLocation extends Component {
+class DoctorsByFacility extends Component {
 
   state = {
     searchTerm: ''
@@ -25,19 +25,19 @@ class DoctorsByLocation extends Component {
 
   const screenContent = (
     <div>
-
-      <input placeholder="Search by city" type="text" value={this.state.CITY} onChange={this.handleChange} name="CITY" />
+ 
+      <input placeholder="Search by facility" type="text" value={this.state.FACILITY_NAME} onChange={this.handleChange} name="FACILITY_NAME" />
 
 
       <div>
-        {this.props.doctorsOfSelectedCondition.filter(doctor => doctor.CITY === this.state.searchTerm).map(doctor => 
-        <p key={doctor.id} id={doctor.id} onClick={this.handleClick}> {doctor.FACILITY_NAME}: {doctor.doctor_name}</p>)}
+        {this.props.doctorsOfSelectedCondition.filter(doctor => doctor.FACILITY_NAME === this.state.searchTerm).map(doctor => 
+        <p key={doctor.id} id={doctor.id} onClick={this.handleClick}> {doctor.doctor_name}</p>)}
       </div>
 
     </div>
   )
 
-   return <PhoneFrame titleText = "Search doctors by City" 
+   return <PhoneFrame titleText = "Search doctors by facility" 
      screenContent={screenContent}/>
   }
   
@@ -52,5 +52,5 @@ const mapDispatchToProps = {
   getSelectedDoctor
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DoctorsByLocation)
+export default connect(mapStateToProps, mapDispatchToProps)(DoctorsByFacility)
 

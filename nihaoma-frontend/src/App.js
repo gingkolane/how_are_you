@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { persistUserWithToken } from './reduxstore/user'
 import { getMyConditions } from './reduxstore/condition'
-import { getMyRecords } from './reduxstore/record'
+import { getMyRecords,getMyRecordsInFull } from './reduxstore/record'
 import { getMyTreatments, getMyTreatmentsGroupByConditions} from './reduxstore/treatment'
 import { getMyDoctors } from './reduxstore/doctor'
 
@@ -27,9 +27,11 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(user => {
+        // debugger
         this.props.persistUserWithToken(user)
         this.props.getMyConditions(user.myConditions)
         this.props.getMyRecords(user.myRecords)
+        this.props.getMyRecordsInFull(user.myrecords_infull)
         this.props.getMyTreatments(user.myTreatments )
         this.props.getMyDoctors( user.myDoctors )
         this.props.getMyTreatmentsGroupByConditions(user.condition_with_treatment)
@@ -98,6 +100,7 @@ const mapDispatchToProps = {
   persistUserWithToken,
   getMyConditions,
   getMyRecords,
+  getMyRecordsInFull,
   getMyTreatments,
   getMyDoctors,
   getMyTreatmentsGroupByConditions

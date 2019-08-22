@@ -40,6 +40,7 @@ class logInSection extends Component {
       this.props.logIn({ user: data.user, token: data.token })
       this.props.getMyConditions(data.myConditions)
       this.props.getMyRecords(data.myRecords)
+      this.props.getMyRecordsInFull(data.myrecords_infull)
       this.props.getMyTreatments(data.myTreatments)
       this.props.getMyDoctors(data.myDoctors)
       this.props.getMyTreatmentsGroupByConditions(data.condition_with_treatment)
@@ -59,17 +60,10 @@ class logInSection extends Component {
      return (
       <div className="box-inside-screen">
         <form onSubmit={this.handleLogInSubmit}>
-          <h4> Log In </h4>
-          <label>Username:
-            <input type="text" value={this.state.username} onChange={this.handleLogInChange} name="username" />
-            <br/>
-          </label>
-
-          <label>Password:
-          <input type="text" value={this.state.password} onChange={this.handleLogInChange} name="password" />
+          <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleLogInChange} name="username" />
           <br/>
-          </label>
-
+          <input placeholder="Password" type="text" value={this.state.password} onChange={this.handleLogInChange} name="password" />
+          <br/>
           <input type="submit" value="Log In" />
         </form>
       </div>

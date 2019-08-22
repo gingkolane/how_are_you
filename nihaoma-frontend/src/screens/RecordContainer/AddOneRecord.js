@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
-import { getCreatedRecord } from '../../reduxstore/record.js'
+import { getCreatedRecord, getMyRecordsInFull } from '../../reduxstore/record.js'
 
 class AddOneRecord extends Component {
 
@@ -34,17 +34,21 @@ class AddOneRecord extends Component {
         user_id: this.props.currentUser.id
       })
     }).then(resp => resp.json())
-    .then(data => { this.props.getCreatedRecord(data)})
+    .then(data => {
+      this.props.getCreatedRecord(data.newly_created_record);
+      this.props.getMyRecordsInFull(data.myrecords_infull)
+    })
 
     // after fetch, clear the form
-    this.setState({
-      date_of_visit: '',
-      myCondition: '',
-      doctor_name: '',
-      FACILITY_NAME: '', 
-      CITY: '',
-      treatment_name: ''
-      })
+    this.setState(
+      { date_of_visit: '',
+        myCondition: '',
+        doctor_name: '',
+        FACILITY_NAME: '', 
+        CITY: '',
+        treatment_name: ''
+      }
+    )
 
   };
 
@@ -101,7 +105,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps= { 
-  getCreatedRecord
+  getCreatedRecord,
+  getMyRecordsInFull
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddOneRecord)

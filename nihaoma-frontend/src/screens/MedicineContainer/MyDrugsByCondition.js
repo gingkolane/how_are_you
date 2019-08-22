@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
+import { connect } from 'react-redux'
 import { getSelectedTreatment } from '../../reduxstore/treatment.js'
 
 class MyDrugsByCondition extends Component {
@@ -17,7 +17,8 @@ class MyDrugsByCondition extends Component {
   screenContent = () => {
     return ( this.props.myTreatmentsGroupByConditions.map(conditionTreatments => { 
       return (
-        <ul>{conditionTreatments.name}
+        <ul>
+        <h2>{conditionTreatments.name}</h2>
           {conditionTreatments.treatments.map(treatment => 
           <li key={treatment.id} id={treatment.id} onClick={this.handleClick}>{treatment.treatment_name}</li>
           )}
