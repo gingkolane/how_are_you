@@ -45,7 +45,7 @@ class ConditionTOCPlus extends Component {
    
     return (
       <>
-        <PhoneFrame titleText = "Overview" screenContent={this.screenContent}/>
+        <PhoneFrame titleText = "Overview" screenContent={this.screenContent} />
         { this.switchScreen(this.state.screen) }
       </>
     )

@@ -10,7 +10,8 @@ class TreatmentsOfCondition extends Component {
       <li key={treatment.id} id={treatment.id} onClick={this.handleClick}> {treatment.treatment_name}</li>)
     
     return <PhoneFrame titleText = { "Standard treatments" } 
-      screenContent={screenContent}/>
+      screenContent={screenContent}
+      />
 
   }
 }

@@ -27,14 +27,29 @@ class Phoneframe extends Component {
 
             <div className="bottom-nav">
               {/* <i className="fas fa-info-circle fa-2x" ></i> */}
-              <i className="material-icons md-36">info_outline</i>
+              <span style={{fontSize: "3em", color: "#cc3300"}}>
+                <i className="material-icons md-36">info_outline</i>
+              </span>
+             
               {/* <i class="material-icons md-48">help_outline</i> */}
-              <i className="fas fa-clinic-medical fa-2x"></i>
+              <span style={{fontSize: "1em", color: "#993399"}}>
+                <i className="fas fa-clinic-medical fa-2x "></i>
+              </span>
+
               {/* <i className="far fa-heart fa-3x"></i> */}
               {/* <i className="material-icons md-48">sentiment_satisfied_alt</i> */}
-              <i className="material-icons md-36">favorite_border</i>
-              <i className="fas fa-paste fa-2x"></i>
-              <i className="fas fa-capsules fa-2x"></i>
+
+              <span style={{fontSize: "3em", color: "#336699"}}>
+                <i className="material-icons md-36">favorite_border</i>
+              </span>
+
+              <span style={{fontSize: "1em", color: "#ffcc00"}}>
+                <i className="fas fa-paste fa-2x"></i>
+              </span>
+
+              <span style={{fontSize: "1em", color: "#009999"}}>
+                <i className="fas fa-capsules fa-2x"></i>
+              </span>
             </div>
 
           </div>
