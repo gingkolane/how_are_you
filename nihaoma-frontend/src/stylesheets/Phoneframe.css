@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-/*   background-color: red; */
   border: 0.1vw solid grey;
   width: 20vw;
   height: 40vw;
@@ -12,84 +11,98 @@
   margin: 1vw;
 }
 
-h6 {
-  font-size: 12px;
-  margin: 10px;
-}
-
-.toc-buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 70%;
-  padding: 10px;
-}
-
-.toc-buttons button {
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
-  align-items: center;
-}
+.top-bar {
+  /*   position: relative; */
+    position: absolute;
+    top: 0.5vw;
+    width: 100%;
+  /*   background-color: purple; */
+    height: 4.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .speaker {
+    width: 15%;
+    height: 7%;
+  /*   background-color: b; */
+    border: 0.1vw solid grey;
+    border-radius: 10px;
+  }
+  .camera {
+    position: absolute;
+    left: 11vw;
+    height: 0.7vw;
+    width: 0.7vw;
+  /*   background-color: grey; */
+    border: 0.1vw solid grey;
+    border-radius: 100%;
+  }
+  
+  .camera-2 {
+    position: absolute;
+    left: 15.7vw;
+    top: 0.5vw;
+    height: 0.5vw;
+    width: 0.5vw;
+  /*   background-color: red; */
+    border: 0.1vw solid grey;
+    border-radius: 100%;
+  }
+  
+.button {
+  /*   background-color: green; */
+    border: 0.1vw solid grey;
+    height: 3.5vw;
+    width: 3.5vw;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 0.7vw;
+  }
 
 .screen {
-/*   background-color: blue; */
   box-sizing: border-box;
-  /* border: 0.1vw solid grey; */
   width: 92%;
   height: 82%;
-  /* padding: 1vw; */
-  /* overflow: scroll; */
-  /* font-size: 1vw; */
   position: relative;
 }
 
 .screen-content {
-    /* background-color: blue; */
-    /* top: 15; */
-    box-sizing: border-box;
-    border: 0.1vw solid grey;
-    width: 100%;
-    height: inherit;
-    /* padding: 1vw; */
-    /* overflow: scroll; */
-    font-size: 1vw;
-    /* margin-bottom: auto;
-    margin-top: auto;
-    flex-grow: 1 */
-    /* position: relative; */
-  }
+  box-sizing: border-box;
+  border: 0.1vw solid grey;
+  width: 100%;
+  height: inherit;
+  font-size: 1vw;
+}
 
-  .screen-content-scroll {
-    /* background-color: blue; */
-    /* top: 15; */
-    box-sizing: border-box;
-    border: 0.1vw solid grey;
-    width: 100%;
-    height: inherit;
-    /* padding: 1vw; */
-    overflow: scroll;
-    font-size: 1vw;
-    /* margin-bottom: auto;
-    margin-top: auto;
-    flex-grow: 1 */
-    /* position: relative; */
-  }
+.screen-content-scroll {
+  /* background-color: blue; */
+  /* top: 15; */
+  box-sizing: border-box;
+  border: 0.1vw solid grey;
+  width: 100%;
+  height: inherit;
+  /* padding: 1vw; */
+  overflow: scroll;
+  font-size: 1vw;
+  /* margin-bottom: auto;
+  margin-top: auto;
+  flex-grow: 1 */
+  /* position: relative; */
+}
 
-  .screen-title {
-    position: relative;
-    /* position: absolute; */
-    top: 0;
-    width: 100%;
-    background-color: olivedrab;
-    height: 8.5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 12px
-  }
+.screen-title {
+  position: relative;
+  /* position: absolute; */
+  top: 0;
+  width: 100%;
+  background-color: olivedrab;
+  height: 8.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 12px
+}
 
 .bottom-nav {
 /* position: relative; */
@@ -103,55 +116,6 @@ h6 {
   align-items: center;
 }
 
-
-.button {
-/*   background-color: green; */
-  border: 0.1vw solid grey;
-  height: 3.5vw;
-  width: 3.5vw;
-  border-radius: 100%;
-  position: absolute;
-  bottom: 0.7vw;
-}
-
-.top-bar {
-/*   position: relative; */
-  position: absolute;
-  top: 0.5vw;
-  width: 100%;
-/*   background-color: purple; */
-  height: 4.5vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.speaker {
-  width: 15%;
-  height: 7%;
-/*   background-color: b; */
-  border: 0.1vw solid grey;
-  border-radius: 10px;
-}
-.camera {
-  position: absolute;
-  left: 11vw;
-  height: 0.7vw;
-  width: 0.7vw;
-/*   background-color: grey; */
-  border: 0.1vw solid grey;
-  border-radius: 100%;
-}
-
-.camera-2 {
-  position: absolute;
-  left: 15.7vw;
-  top: 0.5vw;
-  height: 0.5vw;
-  width: 0.5vw;
-/*   background-color: red; */
-  border: 0.1vw solid grey;
-  border-radius: 100%;
-}
 
 
 .material-icons.md-18 { font-size: 18px; }

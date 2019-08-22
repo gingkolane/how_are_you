@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PhoneFrame from "../../components/Phoneframe"
-import SignUpSection from "../../components/SignUpSection"
-import LogInSection from "../../components/LogInSection"
+import SignUpSection from "./SignUpSection"
+import LogInSection from "./LogInSection"
 
 
 class WelcomeScreen extends Component {

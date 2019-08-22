@@ -27,14 +27,14 @@ class Phoneframe extends Component {
 
             <div className="bottom-nav">
               {/* <i className="fas fa-info-circle fa-2x" ></i> */}
-              <i class="material-icons md-36">info_outline</i>
+              <i className="material-icons md-36">info_outline</i>
               {/* <i class="material-icons md-48">help_outline</i> */}
-              <i class="fas fa-clinic-medical fa-2x"></i>
-              {/* <i class="far fa-heart fa-3x"></i> */}
-              {/* <i class="material-icons md-48">sentiment_satisfied_alt</i> */}
-              <i class="material-icons md-36">favorite_border</i>
-              <i class="fas fa-paste fa-2x"></i>
-              <i class="fas fa-capsules fa-2x"></i>
+              <i className="fas fa-clinic-medical fa-2x"></i>
+              {/* <i className="far fa-heart fa-3x"></i> */}
+              {/* <i className="material-icons md-48">sentiment_satisfied_alt</i> */}
+              <i className="material-icons md-36">favorite_border</i>
+              <i className="fas fa-paste fa-2x"></i>
+              <i className="fas fa-capsules fa-2x"></i>
             </div>
 
           </div>

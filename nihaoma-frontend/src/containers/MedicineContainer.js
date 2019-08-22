@@ -11,8 +11,8 @@ class MedicineContainer extends Component {
     return ( 
       <div className="section-container">
         <MyDrugsByCondition />
-        <AddOneDrug />
         <OneDrugInfo />
+        <AddOneDrug />
       </div>
      );
   }

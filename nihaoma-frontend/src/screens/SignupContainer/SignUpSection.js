@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { signUp } from '../reduxstore/user.js'
-import { getMyConditions } from '../reduxstore/condition.js'
-import { getMyRecords } from '../reduxstore/record.js'
-import { getMyTreatments } from '../reduxstore/treatment.js'
-import { getMyDoctors } from '../reduxstore/doctor.js'
+import { signUp } from '../../reduxstore/user.js'
+import { getMyConditions } from '../../reduxstore/condition.js'
+import { getMyRecords } from '../../reduxstore/record.js'
+import { getMyTreatments, getMyTreatmentsGroupByConditions } from '../../reduxstore/treatment.js'
+import { getMyDoctors } from '../../reduxstore/doctor.js'
 
 class SignUpSection extends Component {
 
@@ -44,6 +44,7 @@ class SignUpSection extends Component {
       this.props.getMyRecords(data.myRecords)
       this.props.getMyTreatments(data.myTreatments)
       this.props.getMyDoctors(data.myDoctors)
+      this.props.getMyTreatmentsGroupByConditions(data.condition_with_treatment)
     })
 
     //after fetch, clear the form
@@ -90,6 +91,7 @@ const mapDispatchToProps = {
     getMyConditions,
     getMyRecords,
     getMyTreatments,
+    getMyTreatmentsGroupByConditions,
     getMyDoctors
   }
 

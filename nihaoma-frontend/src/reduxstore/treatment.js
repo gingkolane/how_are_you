@@ -6,6 +6,7 @@ const treatment = createSlice({
   
   initialState: { 
     myTreatments: [],
+    myTreatmentsGroupByConditions:{},
     selectedTreatment: {},
     treatmentsOfSelectedCondition: []
   },
@@ -13,7 +14,8 @@ const treatment = createSlice({
   reducers: {
     getMyTreatments: (state, action) => { return {...state, myTreatments: action.payload}},
     getSelectedTreatment: (state, action) => { return {...state, selectedTreatment: action.payload}},
-    getTreatmentsOfSelectedCondition: (state, action) => { return {...state, treatmentsOfSelectedCondition: action.payload}}
+    getTreatmentsOfSelectedCondition: (state, action) => { return {...state, treatmentsOfSelectedCondition: action.payload}},
+    getMyTreatmentsGroupByConditions: (state, action) => { return {...state, myTreatmentsGroupByConditions: action.payload}}
   },
 
 });
@@ -21,6 +23,6 @@ const treatment = createSlice({
 
 const { actions, reducer } = treatment
 
-export const { getMyTreatments, getSelectedTreatment, getTreatmentsOfSelectedCondition } = actions
+export const { getMyTreatments, getSelectedTreatment, getTreatmentsOfSelectedCondition, getMyTreatmentsGroupByConditions } = actions
 
 export default reducer

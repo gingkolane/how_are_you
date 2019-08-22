@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { persistUserWithToken } from './reduxstore/user'
 import { getMyConditions } from './reduxstore/condition'
 import { getMyRecords } from './reduxstore/record'
-import { getMyTreatments } from './reduxstore/treatment'
+import { getMyTreatments, getMyTreatmentsGroupByConditions} from './reduxstore/treatment'
 import { getMyDoctors } from './reduxstore/doctor'
 
 import './stylesheets/App.css';
@@ -32,6 +32,7 @@ class App extends Component {
         this.props.getMyRecords(user.myRecords)
         this.props.getMyTreatments(user.myTreatments )
         this.props.getMyDoctors( user.myDoctors )
+        this.props.getMyTreatmentsGroupByConditions(user.condition_with_treatment)
       })
     }
   }
@@ -98,7 +99,8 @@ const mapDispatchToProps = {
   getMyConditions,
   getMyRecords,
   getMyTreatments,
-  getMyDoctors
+  getMyDoctors,
+  getMyTreatmentsGroupByConditions
 };
 
 export default connect(null,mapDispatchToProps)(App)

@@ -11,7 +11,6 @@
   /* overflow: scroll; */
 }
 
-
 .section-container-5phone {
   display: flex;
   width: 100%;
@@ -102,4 +101,26 @@ canvas{width: 60;
   align-items: stretch;
   direction: inherit;
   margin-top: 1vw;
+}
+
+h6 {
+  font-size: 12px;
+  margin: 10px;
+}
+
+.toc-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+  padding: 10px;
+}
+
+.toc-buttons button {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
 }
