@@ -19,6 +19,16 @@ class AuthController < ApplicationController
         object
       end
       
+      myrecords_infull = user.records.map do |record|
+        object = {
+          condition: record.condition,
+          doctor: record.doctor,
+          date_of_visit: record.date_of_visit,
+          treatments: record.treatments
+        }
+        object
+      end 
+
       render json: {
         user: user, 
         token: encode_token(user),
@@ -26,7 +36,8 @@ class AuthController < ApplicationController
         myRecords: user.records,
         condition_with_treatment: treatments_for_my_conditions,
         myTreatments: user.treatments,
-        myDoctors: user.doctors
+        myDoctors: user.doctors,
+        myrecords_infull: user.myrecords_infull
       }
     else
       render json: { errors: ["Wrong username or password bud. Sorry!"] }, status: :unprocessable_entity
@@ -44,9 +55,19 @@ class AuthController < ApplicationController
           name: condition.condition_name,
           treatments: treatments
         }
-        
+
         object
       end
+
+      myrecords_infull = current_user.records.map do |record|
+        object = {
+          condition: record.condition,
+          doctor: record.doctor,
+          date_of_visit: record.date_of_visit,
+          treatments: record.treatments
+        }
+        object
+      end 
 
       render json: { 
         currentUser: current_user, 
@@ -54,7 +75,8 @@ class AuthController < ApplicationController
         myRecords: current_user.records,
         myTreatments: current_user.treatments,
         condition_with_treatment: treatments_for_my_conditions,
-        myDoctors: current_user.doctors
+        myDoctors: current_user.doctors,
+        myrecords_infull: myrecords_infull
       }
     end
   end  

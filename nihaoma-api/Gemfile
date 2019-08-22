@@ -19,6 +19,9 @@ gem 'bcrypt', '~> 3.1.7'
 # To make the javascript web token, https://github.com/jwt/ruby-jwt
 gem 'jwt'
 
+# Fast JSON API serializer
+gem 'fast_jsonapi'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

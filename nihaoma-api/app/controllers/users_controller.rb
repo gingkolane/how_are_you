@@ -34,9 +34,18 @@ class UsersController < ApplicationController
             name: condition.condition_name,
             treatments: treatments
         }
-
         object
       end
+
+      myrecords_infull = user.records.map do |record|
+        object = {
+          condition: record.condition,
+          doctor: record.doctor,
+          date_of_visit: record.date_of_visit,
+          treatments: record.treatments
+        }
+        object
+      end 
 
       render json: {
         token: encode_token(user), 
@@ -45,7 +54,8 @@ class UsersController < ApplicationController
         myRecords: user.records,
         myTreatments: user.treatments, 
         condition_with_treatment: treatments_for_my_conditions,
-        myDoctors: user.doctors
+        myDoctors: user.doctors,
+        myrecords_infull: myrecords_infull
       }
     else
       render json: {errors: user.errors.full_messages}
@@ -55,7 +65,35 @@ class UsersController < ApplicationController
 
 
   # get "/profile", view current user's own information
-  def profile
+  # def profile
+
+  #   myrecords_infull = current_user.records.map do |record|
+
+  #     object = {
+  #       condition: record.condition,
+  #       doctor: record.doctor,
+  #       date_of_visit: record.date_of_visit,
+  #       treatments: record.treatments
+  #     }
+
+  #     object
+
+  #   end 
+
+  #   render json: current_user
+  # end 
+
+  private
+  # note:  rails api, don't need to use require
+  def user_params
+    params.permit(:username, :password, :myCondition, :realname, :email, :mobile, 
+    :status, :age, :gender, :city, :user_pict, :description, :tag)
+  end
+
+end
+
+
+# profile thought process
 # # For server to give information from a client get request, server needs to verify token first. 
 #     # server takes the token from the get request header  
 #     token = request.headers[:Authorization]
@@ -66,15 +104,4 @@ class UsersController < ApplicationController
 #     # find the user using the user_id, and give back the information using render 
 #     user = User.find(user_id)
 # # This continuous four steps logic process was broken into four pieces in applicationController, secret, token, decode_token, current_user
-    render json: current_user
-  end 
-
-
-  private
-  # note:  rails api, don't need to use require
-  def user_params
-    params.permit(:username, :password, :myCondition, :realname, :email, :mobile, 
-    :status, :age, :gender, :city, :user_pict, :description, :tag)
-  end
-
-end
+    

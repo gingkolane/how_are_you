@@ -8,6 +8,7 @@ class TreatmentsController < ApplicationController
   def show
     treatment = Treatment.find(params[:id])
     render json: treatment
+    
   end 
 
 

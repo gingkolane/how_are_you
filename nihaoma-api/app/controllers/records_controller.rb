@@ -2,18 +2,40 @@ class RecordsController < ApplicationController
 
   def index
     records = Record.all
-    render json: records
+
+    full_records = records.map do |record|
+      
+      object = {
+        user: record.user,
+        condition: record.condition,
+        doctor: record.doctor,
+        date_of_visit: record.date_of_visit,
+        treatments: record.treatments
+      }
+
+      object
+    end
+    render json: full_records
   end
 
   def show
     record = Record.find(params[:id])
-    render json: record
+    render json: {
+      user: record.user,
+      condition: record.condition,
+      doctor: record.doctor,
+      date_of_visit: record.date_of_visit,
+      treatments: record.treatments
+    }
   end 
 
   def create
     # find condition from input condition_name, strict
     condition = Condition.find_by(condition_name: params[:myCondition])
-    
+    # define user who created the record
+    # user = User.find_by(user.id: params[:user_id]
+    user = current_user
+
     # if this user has entered this condition before, attach this record to pre-existing condition_user
     input_conditions_user = ConditionsUser.find_by(condition_id: condition.id, user_id: params[:user_id])
     if input_conditions_user
@@ -37,14 +59,29 @@ class RecordsController < ApplicationController
       treatment = Treatment.find_by(treatment_name: params[:treatment_name])
       RecordsTreatment.create(record_id: record.id, treatment_id: treatment.id)
     end
+
+    myrecords_infull = user.records.map do |record|
+      object = {
+        condition: record.condition,
+        doctor: record.doctor,
+        date_of_visit: record.date_of_visit,
+        treatments: record.treatments
+      }
+      object
+    end 
     
     render json: { 
-      record: record,
-      condition: record.condition,
-      treatments: record.treatments
+      current_record: {
+        record: record,
+        condition: record.condition,
+        treatments: record.treatments
+        }
+
+      myrecords_infull: myrecords_infull
     }
 
   end
+
 
   private
   def record_params

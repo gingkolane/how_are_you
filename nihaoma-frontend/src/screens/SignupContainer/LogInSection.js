@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { logIn } from '../../reduxstore/user.js'
 import { getMyConditions } from '../../reduxstore/condition.js'
-import { getMyRecords } from '../../reduxstore/record.js'
+import { getMyRecords, getMyRecordsInFull } from '../../reduxstore/record.js'
 import { getMyTreatments, getMyTreatmentsGroupByConditions} from '../../reduxstore/treatment.js'
 import { getMyDoctors } from '../../reduxstore/doctor.js'
 
@@ -43,6 +43,7 @@ class logInSection extends Component {
       this.props.getMyTreatments(data.myTreatments)
       this.props.getMyDoctors(data.myDoctors)
       this.props.getMyTreatmentsGroupByConditions(data.condition_with_treatment)
+      this.props.getMyRecordsInFull(data.myrecords_infull)
 
     })
 
@@ -83,7 +84,8 @@ const mapDispatchToProps = {
     getMyRecords,
     getMyTreatments,
     getMyDoctors,
-    getMyTreatmentsGroupByConditions
+    getMyTreatmentsGroupByConditions,
+    getMyRecordsInFull
 }
 
 export default connect(null, mapDispatchToProps)(logInSection)
