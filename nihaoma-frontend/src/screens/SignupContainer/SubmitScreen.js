@@ -35,15 +35,15 @@ class SubmitScreen extends Component {
   };
 
   screenContent = (
-    <>
+    <div className="toc-buttons">
       <form onSubmit={this.handleSubmit}>
-        <input type="submit" value="Show me my groups, please. " />
+        <input type="submit" value="Submit My Groups" />
       </form>
-   </>
+   </div>
   )
 
   render() {
-    return <PhoneFrame titleText = { "Welcome" } 
+    return <PhoneFrame titleText = { "My Groups" } 
       screenContent={this.screenContent}/>
   }
 

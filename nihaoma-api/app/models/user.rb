@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :records_treatments, through: :records
   has_many :treatments, through: :records_treatments
 
-  # has_many :groups_users
-  # has_many :groups, through: :groups_users
+  has_many :groups_users
+  has_many :groups, through: :groups_users
 
   # def create_conditions_user(condition)
   #   currentCondition = Condition.find_by(condition_name: condition)
@@ -21,4 +21,5 @@ class User < ApplicationRecord
   #   )
   #   return currentCondition
   # end
+  
 end

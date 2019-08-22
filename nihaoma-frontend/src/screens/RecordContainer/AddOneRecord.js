@@ -90,7 +90,7 @@ class AddOneRecord extends Component {
 }
 
  render() {
-   return <PhoneFrame titleText = { "Add A Doctor Visit" } 
+   return <PhoneFrame titleText = { "Add a doctor visit" } 
      screenContent={this.screenContent()}/>
   }
   

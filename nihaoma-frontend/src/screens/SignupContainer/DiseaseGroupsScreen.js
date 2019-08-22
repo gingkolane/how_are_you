@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PhoneFrame from "../../components/Phoneframe"
 import '../../stylesheets/Phoneframe.css';
 
-class ConditionSubgroupSelectionScreen extends Component {
+class DiseaseGroupsScreen extends Component {
   
   state = {
     group_name: '',
@@ -37,20 +37,19 @@ class ConditionSubgroupSelectionScreen extends Component {
   };
 
   screenContent = (
-    <>
-     <h6>Here are some relevant groups you might be interested in:</h6>
-      <h4>Condition sub-group:</h4>
-
-      <button onClick={this.handleOnClick}  > +    Stage I/II lung cancer </button>
+    <div className="toc-buttons">
+     <h6>Disease groups you might be interested in:</h6>
+     
+      <button onClick={this.handleOnClick}> Stage I/II lung cancer </button>
               
-      <button onClick={this.handleOnClick}> +     Stage III lung cancer  </button>
+      <button onClick={this.handleOnClick}> Stage III lung cancer </button>
              
-      <button onClick={this.handleOnClick}> +      Stage IV lung cancer    </button>
-    </>
+      <button onClick={this.handleOnClick}> Stage IV lung cancer </button>
+    </div>
   )
 
   render() {
-    return <PhoneFrame titleText = { "Condition Group Selection" } 
+    return <PhoneFrame titleText = { "Disease Groups" } 
      screenContent={this.screenContent}/>
   }
 
@@ -67,4 +66,4 @@ const mapDispatchToProps = {
   // createNewGroupsUser: createNewGroupsUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConditionSubgroupSelectionScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(DiseaseGroupsScreen)

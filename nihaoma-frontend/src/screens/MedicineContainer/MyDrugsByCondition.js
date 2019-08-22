@@ -7,29 +7,39 @@ class MyDrugsByCondition extends Component {
 
   // const conditions = this.props.myConditions
   // const treatments = this.props.myTreatments
+  // name = "Chloe"
+  // screenContent = sadfasd => {}
 
-  screenContent = () => (
-    
-    <List bulleted>
-      this.props.myConditions.forEach(condition => {
-
-        <List.Item>condition.condition_name</List.Item>
-        
-        this.props.myTreatments.forEach(treatment => {
-
-          if (treatment.conditions.includes(condition)) {
-            <List.List>
-              <List.Item>treatment.drug_name</List.Item>
-            </List.List>
-          }
-
-        })
-
+  renderContent = () => {
+    return this.props.myConditions.map(condition => {
+      const treatments = this.props.myTreatments.map(treatment => {
+        // debugger
+        // if (treatment.conditions.includes(condition)) {
+          return <li className="li-bullet">{treatment.treatment_name}</li>
+  
+        // }
       })
+      return (
+        <React.Fragment>
+            <h2 className="ul-bold">{condition.condition_name}</h2>
+            <ul>{treatments}</ul>
+            
+              
+
+        </React.Fragment>
+      )
+    })
+  }
+  
+  screenContent = () => (
+  
+    <List bulleted>
+      {this.renderContent()}
     </List>
   )
-
   render() {
+
+
     return <PhoneFrame titleText = "My Medicine Box" screenContent={this.screenContent()}/>
   }
 }

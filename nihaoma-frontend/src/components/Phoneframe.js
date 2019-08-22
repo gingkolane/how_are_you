@@ -15,27 +15,28 @@ class Phoneframe extends Component {
             <div className="camera-2"></div> 
           </div>
 
-          <div className="screen-title">
-            {this.props.titleText}
-          </div>
-
           <div className="screen">
-            {this.props.screenContent}
-          </div>
 
-          <div className="bottom-nav">
-            <i className="fas fa-info-circle fa-3x" ></i>
-            {/* <i class="far fa-hospital fa-3x"></i> */}
-            <i class="fas fa-clinic-medical fa-3x"></i>
-            {/* <i class="fas fa-hospital fa-3x"></i> */}
-            {/* <i class="fas fa-dice-d20 fa-3x"></i> */}
-            {/* <i class="far fa-comments fa-4x"></i> */}
-            <i class="far fa-heart fa-4x"></i>
-            {/* <i class="far fa-clipboard fa-3x"></i> */}
-            <i class="fas fa-paste fa-3x"></i>
-            {/* <i class="fas fa-notes-medical fa-3x"></i> */}
-            {/* <i class="fas fa-prescription-bottle-alt fa-3x"></i> */}
-            <i class="fas fa-capsules fa-3x"></i>
+            <div className="screen-title">
+              {this.props.titleText}
+            </div>
+            
+            <div className="screen-content">
+            {this.props.screenContent}
+            </div>
+
+            <div className="bottom-nav">
+              {/* <i className="fas fa-info-circle fa-2x" ></i> */}
+              <i class="material-icons md-36">info_outline</i>
+              {/* <i class="material-icons md-48">help_outline</i> */}
+              <i class="fas fa-clinic-medical fa-2x"></i>
+              {/* <i class="far fa-heart fa-3x"></i> */}
+              {/* <i class="material-icons md-48">sentiment_satisfied_alt</i> */}
+              <i class="material-icons md-36">favorite_border</i>
+              <i class="fas fa-paste fa-2x"></i>
+              <i class="fas fa-capsules fa-2x"></i>
+            </div>
+
           </div>
 
           <div className="button">      

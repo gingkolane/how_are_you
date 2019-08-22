@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import WelcomeScreen from "../screens/SignupContainer/WelcomeScreen"
-import ConditionSubgroupSelectionScreen from "../screens/SignupContainer/ConditionSubgroupSelectionScreen.js"
-import OfficalGroupSelectionScreen from "../screens/SignupContainer/OfficalGroupSelectionScreen.js"
-import InterestGroupSelectionScreen from "../screens/SignupContainer/InterestGroupSelectionScreen.js"
+import DiseaseGroupsScreen from "../screens/SignupContainer/DiseaseGroupsScreen.js"
+import OfficalGroupsScreen from "../screens/SignupContainer/OfficalGroupsScreen.js"
+import InterestGroupsScreen from "../screens/SignupContainer/InterestGroupsScreen.js"
 import SubmitScreen from "../screens/SignupContainer/SubmitScreen"
 
 class SignupContainer extends Component {
 
   render() { 
     return ( 
-      <div className="section-container">
+      <div className="section-container-5phone">
         <WelcomeScreen />
-        <ConditionSubgroupSelectionScreen />
-        <OfficalGroupSelectionScreen />
-        <InterestGroupSelectionScreen />  */}
+        <DiseaseGroupsScreen />
+        <OfficalGroupsScreen />
+        <InterestGroupsScreen />
         <SubmitScreen/>
       </div>
      );

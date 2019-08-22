@@ -26,18 +26,18 @@ class ConditionTOCPlus extends Component {
       case 'TrialsOfCondition':
         return <TrialsOfCondition />
       default:
-        return <Overview />
+        return <TreatmentsOfCondition />
     }
   }
 
   screenContent = (
-    <>
+    <div className="toc-buttons">
       <button onClick={this.handleClick} name="Overview"> Overview </button>
       <button onClick={this.handleClick} name="Diagnosis"> Diagnosis </button>
       <button onClick={this.handleClick} name="TreatmentsOfCondition"> Standard treatments</button>
       <button onClick={this.handleClick} name="TrialsOfCondition"> Latest Development</button>
       <button onClick={this.handleClick} name="Care"> Care </button>
-   </>
+   </div>
   )
 
   render() {

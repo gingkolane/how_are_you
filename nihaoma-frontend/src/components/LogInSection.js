@@ -54,23 +54,22 @@ class logInSection extends Component {
  
    render() {
      return (
-      <>
-      <form onSubmit={this.handleLogInSubmit}>
-        <h4>~~~ Or log In ~~~</h4>
-        <label>My name is:
-          <input type="text" value={this.state.username} onChange={this.handleLogInChange} name="username" />
+      <div className="box-inside-screen">
+        <form onSubmit={this.handleLogInSubmit}>
+          <h4> Log In </h4>
+          <label>Username:
+            <input type="text" value={this.state.username} onChange={this.handleLogInChange} name="username" />
+            <br/>
+          </label>
+
+          <label>Password:
+          <input type="text" value={this.state.password} onChange={this.handleLogInChange} name="password" />
           <br/>
-        </label>
+          </label>
 
-        <label>My password:
-        <input type="text" value={this.state.password} onChange={this.handleLogInChange} name="password" />
-        <br/>
-        </label>
-
-        <input type="submit" value="Log me in" />
-      </form>
-
-    </>
+          <input type="submit" value="Log In" />
+        </form>
+      </div>
      )
    }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PhoneFrame from "../../components/Phoneframe"
+import qrcode from "../../assets/qrcode.png"
 
 class AddOneDrug extends Component {
 
@@ -33,7 +34,7 @@ class AddOneDrug extends Component {
  render() {
 
   const screenContent = (
-    <>
+    <div className="toc-buttons">
       <form onSubmit={this.handleSignUpSubmit}>
         <h4>Enter the drug name:</h4>
         <label>
@@ -42,14 +43,15 @@ class AddOneDrug extends Component {
         </label>
 
         <h4>Or scan the code on the medicine box</h4>
-          <img src='../../assets/qrcode.png' alt="qrcode" height="42" width="42"/> 
+          <img src={qrcode} alt="qrcode" height="100px" width="100px"/> 
+        <br/>
         <br/>
         <input type="submit" value="Add a drug" />
       </form>
-    </>
+    </div>
   )
 
-   return <PhoneFrame titleText = { "Add A Drug" } 
+   return <PhoneFrame titleText = { "Add a drug" } 
      screenContent={screenContent}/>
   }
 }

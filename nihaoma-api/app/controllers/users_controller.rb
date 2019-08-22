@@ -26,12 +26,25 @@ class UsersController < ApplicationController
       # conditions upon creating a user
       condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
 
+      treatments_for_my_conditions = user.conditions.map do |condition|
+        treatments_for_this_condition = condition.treatments
+        treatments_for_this_user = user.treatments 
+        treatments = user.treatments & condition.treatments
+        object = {
+            name: condition.condition_name,
+            treatments: treatments
+        }
+
+        object
+      end
+
       render json: {
         token: encode_token(user), 
         user: user, 
         myConditions: user.conditions,
         myRecords: user.records,
-        myTreatments: user.treatments,
+        myTreatments: user.treatments, 
+        condition_with_treatment: treatments_for_my_conditions,
         myDoctors: user.doctors
       }
     else

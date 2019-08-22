@@ -19,9 +19,7 @@ class OneDoctorInfo extends Component {
     )
 
 
-
-
-    return <PhoneFrame titleText = "Information on one doctor" 
+    return <PhoneFrame titleText = "Doctor information" 
       screenContent={screenContent}/>
     }
 

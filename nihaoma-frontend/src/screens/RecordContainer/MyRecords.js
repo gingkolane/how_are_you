@@ -9,7 +9,7 @@ class MyRecords extends Component {
   const screenContent = this.props.myRecords.map(record => 
     <p key={record.id} >{record.date_of_visit}: {record.myCondition} </p> )
     
-   return <PhoneFrame titleText = { "MyRecords" } screenContent={screenContent}/>
+   return <PhoneFrame titleText = "My medical records" screenContent={screenContent}/>
   }
 
 }

@@ -15,7 +15,7 @@ class DoctorsByCondition extends Component {
   )
 
  render() {
-   return <PhoneFrame titleText = { "doctors by location" } 
+   return <PhoneFrame titleText = "Doctors by location" 
      screenContent={this.screenContent}/>
   }
   

@@ -7,6 +7,7 @@ import { getMyTreatments } from './reduxstore/treatment'
 import { getMyDoctors } from './reduxstore/doctor'
 
 import './stylesheets/App.css';
+import './stylesheets/index.css'
 import Typist from 'react-typist';
 import SignupContainer from './containers/SignupContainer'
 import InfoContainer from './containers/InfoContainer'
@@ -55,7 +56,7 @@ class App extends Component {
         <div className="title-box">
           <span className="title-text">You are with people who came down with the same thing...</span>
         </div>
-        <SignupContainer />
+        <SignupContainer/>
 
         <div className="title-box">
           <span className="title-text">You can learn more about your condition and treatment options, you get the same information as the doctors have </span>

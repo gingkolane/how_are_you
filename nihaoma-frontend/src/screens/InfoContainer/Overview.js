@@ -16,7 +16,7 @@ class Overview extends Component {
   )
 
   render() {
-    return <PhoneFrame titleText = { `${this.props.selectedCondition.condition_name} Overview` } 
+    return <PhoneFrame titleText = {this.props.selectedCondition.condition_name} 
       screenContent={this.screenContent}/>
   }
 }

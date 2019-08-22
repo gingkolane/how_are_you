@@ -10,6 +10,16 @@ import { getTrialsOfSelectedCondition } from '../../reduxstore/trial.js'
 
 class MyConditions extends Component {
 
+  // defaultCondition = myConditions[0]
+
+  // fetch(`http://localhost:3000/conditions/${defaultCondition.id}`)
+  // .then(resp => resp.json())
+  // .then( data => { 
+  //   this.props.getTreatmentsOfdefaultCondition(data.treatmentsOfdefaultCondition);
+  //   this.props.getDoctorsOfdefaultCondition(data.doctorsOfdefaultCondition);
+  //   this.props.getTrialsOfdefaultCondition(data.trialsOfdefaultCondition)
+  //   })
+
   handleClick = (e) => {
     //select clicked condition
     const condition_id = parseInt(e.target.id)

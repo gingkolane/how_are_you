@@ -12,6 +12,7 @@
     "redux": "^4.0.4",
     "redux-starter-kit": "^0.6.3",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.87.3",
     "typescript": "^3.5.3"
   },
   "scripts": {

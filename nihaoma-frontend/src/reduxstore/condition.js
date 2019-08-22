@@ -7,6 +7,7 @@ const condition = createSlice({
   initialState: { 
     myConditions: [],
     selectedCondition: {}
+    // selectedCondition: myConditions[0]
   },
 
   reducers: {

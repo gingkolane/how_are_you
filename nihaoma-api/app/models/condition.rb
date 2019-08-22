@@ -12,4 +12,5 @@ class Condition < ApplicationRecord
   has_many :conditions_treatments
   has_many :treatments, through: :conditions_treatments
 
+  has_many :groups
 end 

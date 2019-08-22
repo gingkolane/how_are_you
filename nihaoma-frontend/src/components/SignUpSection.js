@@ -57,17 +57,17 @@ class SignUpSection extends Component {
  
    render() {
      return (
-      <>
+      <div className="box-inside-screen">
         <form onSubmit={this.handleSignUpSubmit}>
-          <h4>~~~ Sign Up ~~~</h4>
+          <h4>Sign Up</h4>
           <label>
-            My name is:
+            Username   
           <input type="text" value={this.state.username} onChange={this.handleSignUpChange} name="username" />
           <br/>
           </label>
 
           <label>
-            My password:
+            Password   
             <input type="text" value={this.state.password} onChange={this.handleSignUpChange} name="password" />
             <br/>
           </label>
@@ -77,9 +77,9 @@ class SignUpSection extends Component {
             <input type="text" value={this.state.myCondition} onChange={this.handleSignUpChange} name="myCondition" />
             <br/>
           </label>
-          <input type="submit" value="Sign me up" />
+          <input type="submit" value="Sign Up" />
         </form>
-      </>
+      </div>
      )
    }
 

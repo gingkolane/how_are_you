@@ -18,7 +18,7 @@ class DoctorsByCondition extends Component {
     const screenContent = this.props.doctorsOfSelectedCondition.slice(0,10).map(doctor => 
       <p key={doctor.id} id={doctor.id} onClick={this.handleClick}> {doctor.doctor_name}</p>)
     
-    return <PhoneFrame titleText = "Doctors treating this condition" 
+    return <PhoneFrame titleText = "Doctors for this condition" 
       screenContent={screenContent}/>
   
     }

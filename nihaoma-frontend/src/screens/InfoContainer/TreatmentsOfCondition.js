@@ -7,16 +7,19 @@ class TreatmentsOfCondition extends Component {
   render() {
 
     const screenContent = this.props.treatmentsOfSelectedCondition.map(treatment => 
-      <p key={treatment.id} id={treatment.id} onClick={this.handleClick}> {treatment.treatment_name}</p>)
+      <li key={treatment.id} id={treatment.id} onClick={this.handleClick}> {treatment.treatment_name}</li>)
     
-    return <PhoneFrame titleText = { "standard treatments" } 
+    return <PhoneFrame titleText = { "Standard treatments" } 
       screenContent={screenContent}/>
 
   }
 }
 
 const mapStateToProps = state => {
-  return { treatmentsOfSelectedCondition: state.treatment.treatmentsOfSelectedCondition }
+  return { 
+    treatmentsOfSelectedCondition: state.treatment.treatmentsOfSelectedCondition,
+    myConditions: state.condition.myConditions 
+  }
 }
 
 export default connect(mapStateToProps)(TreatmentsOfCondition)

@@ -8,9 +8,9 @@ class RecordContainer extends Component {
   render() { 
     return ( 
       <div className="section-container">
-        <AddOneRecord/>
-        <MyRecordsOfOneCondition />
         <MyRecords />
+        <MyRecordsOfOneCondition />
+        <AddOneRecord/>
       </div>
      );
   }

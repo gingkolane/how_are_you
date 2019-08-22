@@ -7,12 +7,24 @@ class AuthController < ApplicationController
     user = User.find_by(username: user_params[:username])
     # if username and password both match those in the database
     if user && user.authenticate(user_params[:password])
-      # myConditions = user.conditions
+      
+      treatments_for_my_conditions = user.conditions.map do |condition|
+        treatments_for_this_condition = condition.treatments
+        treatments_for_this_user = user.treatments 
+        treatments = user.treatments & condition.treatments
+        object = {
+            name: condition.condition_name,
+            treatments: treatments
+        }
+        object
+      end
+      
       render json: {
         user: user, 
         token: encode_token(user),
         myConditions: user.conditions,
         myRecords: user.records,
+        condition_with_treatment: treatments_for_my_conditions,
         myTreatments: user.treatments,
         myDoctors: user.doctors
       }
@@ -23,19 +35,26 @@ class AuthController < ApplicationController
 
   def persist
     if token 
-      # myConditions = current_user.conditions
-      # myRecords = current_user.records
-      # myTreatments = current_user.treatments
-      # myDoctors = current_user.doctors
+
+      treatments_for_my_conditions = current_user.conditions.map do |condition|
+        treatments_for_this_condition = condition.treatments
+        treatments_for_this_user = current_user.treatments 
+        treatments = current_user.treatments & condition.treatments
+        
+        {
+          name: condition.condition_name,
+          treatments: treatments
+        }
+      end
 
       render json: { 
-        currentUser:current_user, 
+        currentUser: current_user, 
         myConditions: current_user.conditions,
         myRecords: current_user.records,
         myTreatments: current_user.treatments,
+        condition_with_treatment: treatments_for_my_conditions,
         myDoctors: current_user.doctors
       }
-
     end
   end  
 
