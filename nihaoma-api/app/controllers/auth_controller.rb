@@ -35,16 +35,17 @@ class AuthController < ApplicationController
 
   def persist
     if token 
-
       treatments_for_my_conditions = current_user.conditions.map do |condition|
         treatments_for_this_condition = condition.treatments
         treatments_for_this_user = current_user.treatments 
         treatments = current_user.treatments & condition.treatments
         
-        {
+        object = {
           name: condition.condition_name,
           treatments: treatments
         }
+        
+        object
       end
 
       render json: { 

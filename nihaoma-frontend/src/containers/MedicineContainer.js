@@ -6,7 +6,7 @@ import MyDrugsByCondition from '../screens/MedicineContainer/MyDrugsByCondition'
 import 'semantic-ui-react'
 
 class MedicineContainer extends Component {
-  state = {  }
+
   render() { 
     return ( 
       <div className="section-container">

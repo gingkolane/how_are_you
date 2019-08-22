@@ -5,50 +5,33 @@ import { List } from 'semantic-ui-react'
 
 class MyDrugsByCondition extends Component {
 
-  // const conditions = this.props.myConditions
-  // const treatments = this.props.myTreatments
-  // name = "Chloe"
-  // screenContent = sadfasd => {}
-
-  renderContent = () => {
-    return this.props.myConditions.map(condition => {
-      const treatments = this.props.myTreatments.map(treatment => {
-        // debugger
-        // if (treatment.conditions.includes(condition)) {
-          return <li className="li-bullet">{treatment.treatment_name}</li>
-  
-        // }
-      })
-      return (
-        <React.Fragment>
-            <h2 className="ul-bold">{condition.condition_name}</h2>
-            <ul>{treatments}</ul>
-            
-              
-
-        </React.Fragment>
-      )
+  screenContent = () => {
+    return ( this.props.myTreatmentsGroupByConditions.map(conditionTreatments => { 
+      return (<List as='ul'>
+        <List.Item as='li'>{conditionTreatments.name}
+          <List.List as='ul'>
+            {conditionTreatments.treatments.map(treatment => <List.Item as='li'>{treatment.treatment_name}</List.Item>)}
+          </List.List>
+        </List.Item>
+      </List>)
     })
-  }
-  
-  screenContent = () => (
-  
-    <List bulleted>
-      {this.renderContent()}
-    </List>
-  )
+  )}
+
   render() {
 
+    console.log("this is the this.props inside mydrugsbyCondition", this.props)
 
     return <PhoneFrame titleText = "My Medicine Box" screenContent={this.screenContent()}/>
   }
+
 }
 
 const mapStateToProps = state => {
   return { 
-    myTreatments: state.treatment.myTreatments,
-    myConditions: state.condition.myConditions
+    myTreatmentsGroupByConditions: state.treatment.myTreatmentsGroupByConditions
    }
 }
 
 export default connect(mapStateToProps)(MyDrugsByCondition)
+
+

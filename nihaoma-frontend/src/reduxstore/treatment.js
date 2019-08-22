@@ -6,7 +6,7 @@ const treatment = createSlice({
   
   initialState: { 
     myTreatments: [],
-    myTreatmentsGroupByConditions:{},
+    myTreatmentsGroupByConditions: [],
     selectedTreatment: {},
     treatmentsOfSelectedCondition: []
   },
