@@ -15,3 +15,12 @@ code {
     monospace;
 }
 
+ul {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+li{
+  font-size: 10px;
+  font-weight: 400;
+}

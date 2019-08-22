@@ -73,6 +73,7 @@
   width: 100%;
   height: inherit;
   font-size: 1vw;
+  text-align-last: left;
 }
 
 .screen-content-scroll {
