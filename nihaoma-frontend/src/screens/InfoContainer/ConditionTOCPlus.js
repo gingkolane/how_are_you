@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForInfo from "../../components/PhoneframeForInfo"
 import Overview from './Overview'
 import Diagnosis from './Diagnosis'
 import TreatmentsOfCondition from './TreatmentsOfCondition'
@@ -45,7 +45,7 @@ class ConditionTOCPlus extends Component {
    
     return (
       <>
-        <PhoneFrame titleText = "Overview" screenContent={this.screenContent} />
+        <PhoneframeForInfo titleText = "Overview" screenContent={this.screenContent} />
         { this.switchScreen(this.state.screen) }
       </>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForMedicine from "../../components/PhoneframeForMedicine"
 import { connect } from 'react-redux'
 import { getSelectedTreatment } from '../../reduxstore/treatment.js'
 
@@ -27,7 +27,7 @@ class MyDrugsByCondition extends Component {
   )}
 
   render() {
-    return <PhoneFrame titleText = "My Medicine Box" screenContent={this.screenContent()}/>
+    return <PhoneframeForMedicine titleText = "My Medicine Box" screenContent={this.screenContent()}/>
   }
 
 }

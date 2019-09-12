@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForInfo from "../../components/PhoneframeForInfo"
 
 import { connect } from 'react-redux'
 import { getSelectedCondition } from '../../reduxstore/condition.js'
@@ -41,7 +41,7 @@ class MyConditions extends Component {
     const screenContent = this.props.myConditions.map(condition => 
       <h3 key={condition.id} id={condition.id} onClick={this.handleClick}> {condition.condition_name}</h3>)
     
-    return <PhoneFrame titleText = "My Conditions" screenContent={screenContent} />
+    return <PhoneframeForInfo titleText = "My Conditions" screenContent={screenContent} />
   }
 
 }

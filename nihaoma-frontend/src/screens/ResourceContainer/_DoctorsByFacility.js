@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForResource from "../../components/PhoneframeForResource"
 import { connect } from 'react-redux'
 import { getSelectedDoctor } from '../../reduxstore/doctor.js'
 
@@ -37,7 +37,7 @@ class DoctorsByFacility extends Component {
     </div>
   )
 
-   return <PhoneFrame titleText = "Search doctors by facility" 
+   return <PhoneframeForResource titleText = "Search doctors by facility" 
      screenContent={screenContent}/>
   }
   

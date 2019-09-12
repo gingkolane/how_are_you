@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForInfo from "../../components/PhoneframeForInfo"
 
 class Care extends Component {
   
@@ -15,7 +15,7 @@ class Care extends Component {
   )
 
  render() {
-   return <PhoneFrame titleText = { "How to care" } 
+   return <PhoneframeForInfo titleText = { "How to care" } 
      screenContent={this.screenContent}/>
   }
   

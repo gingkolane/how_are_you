@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForRecord from "../../components/PhoneframeForRecord"
 import { getCreatedRecord, getMyRecordsInFull } from '../../reduxstore/record.js'
 
 class AddOneRecord extends Component {
@@ -94,7 +94,7 @@ class AddOneRecord extends Component {
 }
 
  render() {
-   return <PhoneFrame titleText = { "Add a doctor visit" } 
+   return <PhoneframeForRecord titleText = { "Add a doctor visit" } 
      screenContent={this.screenContent()}/>
   }
   

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForMedicine from "../../components/PhoneframeForMedicine"
 import { connect } from 'react-redux'
 
 class OneDrugInfo  extends Component {
@@ -19,7 +19,7 @@ class OneDrugInfo  extends Component {
     </>
   )
 
-   return <PhoneFrame titleText = { "Drug Description" } 
+   return <PhoneframeForMedicine titleText = { "Drug Description" } 
      screenContent={screenContent}/>
   }
 }

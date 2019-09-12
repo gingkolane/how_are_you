@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForInfo from "../../components/PhoneframeForInfo"
 
 class Overview extends Component {
 
@@ -16,7 +16,7 @@ class Overview extends Component {
   )
 
   render() {
-    return <PhoneFrame titleText = {this.props.selectedCondition.condition_name} 
+    return <PhoneframeForInfo titleText = {this.props.selectedCondition.condition_name} 
       screenContent={this.screenContent} />
   }
 }

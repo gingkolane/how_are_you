@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForRecord from "../../components/PhoneframeForRecord"
 import { getSelectedRecord, getMyRecordsInFull } from '../../reduxstore/record.js'
 import { getSelectedCondition } from '../../reduxstore/condition.js'
 
@@ -23,7 +23,7 @@ class MyRecords extends Component {
 
   render() {
     
-    const screenContent = this.props.myRecordsInFull.slice(0, 4).map(record => { 
+    const screenContent = this.props.myRecordsInFull.map(record => { 
         return (
           <ul>
             <h4 key={record.condition.id} id={record.condition.id} onClick={this.handleConditionClick}>{record.condition.condition_name}</h4>
@@ -32,7 +32,7 @@ class MyRecords extends Component {
         )
     })
     
-   return <PhoneFrame titleText = "My medical records" screenContent={screenContent}/>
+   return <PhoneframeForRecord titleText = "My medical records" screenContent={screenContent}/>
   }
 
 }

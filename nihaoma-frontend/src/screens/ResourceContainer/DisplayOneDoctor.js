@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForResource from "../../components/PhoneframeForResource"
 
 class DisplayOneDoctor extends Component {
 
@@ -18,7 +18,7 @@ class DisplayOneDoctor extends Component {
     </>
     )
 
-    return <PhoneFrame titleText = "Doctor information" 
+    return <PhoneframeForResource titleText = "Doctor information" 
       screenContent={screenContent}/>
     }
 

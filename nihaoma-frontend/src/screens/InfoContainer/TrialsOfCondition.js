@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getSelectedTrial } from '../../reduxstore/trial.js'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForInfo from "../../components/PhoneframeForInfo"
 
 class TrialsOfCondition extends Component {
 
@@ -22,10 +22,10 @@ class TrialsOfCondition extends Component {
 
  render() {
 
-  const screenContent = this.props.trialsOfSelectedCondition.map(trial => 
+  const screenContent = this.props.trialsOfSelectedCondition.slice(0, 4).map(trial => 
     <p key={trial.id} id={trial.id} onClick={this.handleClick}> {trial.BRIEF_TITLE}</p>)
   
-  return <PhoneFrame titleText = "Latest treatments" 
+  return <PhoneframeForInfo titleText = "Latest treatments" 
     screenContent={screenContent}/>
 
   }

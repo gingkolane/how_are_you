@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../stylesheets/Phoneframe.css';
 
-class PhoneframeForSignUp extends Component {
+class PhoneframeForMedicine extends Component {
 
   render() { 
     return ( 
@@ -27,19 +27,19 @@ class PhoneframeForSignUp extends Component {
 
 
             <div className="bottom-nav">
-              <span style={{fontSize: "3em", color: "#cc3300"}}>
+              <span style={{fontSize: "3em", color: "#b3b3b3"}}>
                 <i className="material-icons md-36">info_outline</i>
               </span>
               
-              <span style={{fontSize: "1em", color: "#993399"}}>
+              <span style={{fontSize: "1em", color: "#b3b3b3"}}>
                 <i className="fas fa-clinic-medical fa-2x "></i>
               </span>
 
-              <span style={{fontSize: "3em", color: "#336699"}}>
+              <span style={{fontSize: "3em", color: "#b3b3b3"}}>
                 <i className="material-icons md-36">favorite_border</i>
               </span>
 
-              <span style={{fontSize: "1em", color: "#ffcc00"}}>
+              <span style={{fontSize: "1em", color: "#b3b3b3"}}>
                 <i className="fas fa-paste fa-2x"></i>
               </span>
 
@@ -60,4 +60,4 @@ class PhoneframeForSignUp extends Component {
   }
 }
  
-export default PhoneframeForSignUp;
+export default PhoneframeForMedicine;

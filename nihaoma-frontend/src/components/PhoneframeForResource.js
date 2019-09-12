@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../stylesheets/Phoneframe.css';
 
-class PhoneframeForSignUp extends Component {
+class Phoneframe extends Component {
 
   render() { 
     return ( 
@@ -21,13 +21,13 @@ class PhoneframeForSignUp extends Component {
               {this.props.titleText}
             </div>
             
-            <div className="screen-content">
+            <div className="screen-content-scroll">
             {this.props.screenContent}
             </div>
 
 
             <div className="bottom-nav">
-              <span style={{fontSize: "3em", color: "#cc3300"}}>
+              <span style={{fontSize: "3em", color: "#b3b3b3"}}>
                 <i className="material-icons md-36">info_outline</i>
               </span>
               
@@ -35,15 +35,15 @@ class PhoneframeForSignUp extends Component {
                 <i className="fas fa-clinic-medical fa-2x "></i>
               </span>
 
-              <span style={{fontSize: "3em", color: "#336699"}}>
+              <span style={{fontSize: "3em", color: "#b3b3b3"}}>
                 <i className="material-icons md-36">favorite_border</i>
               </span>
 
-              <span style={{fontSize: "1em", color: "#ffcc00"}}>
+              <span style={{fontSize: "1em", color: "#b3b3b3"}}>
                 <i className="fas fa-paste fa-2x"></i>
               </span>
 
-              <span style={{fontSize: "1em", color: "#009999"}}>
+              <span style={{fontSize: "1em", color: "#b3b3b3"}}>
                 <i className="fas fa-capsules fa-2x"></i>
               </span>
             </div>
@@ -60,4 +60,4 @@ class PhoneframeForSignUp extends Component {
   }
 }
  
-export default PhoneframeForSignUp;
+export default Phoneframe;

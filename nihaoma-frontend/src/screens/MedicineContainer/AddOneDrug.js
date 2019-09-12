@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForMedicine from "../../components/PhoneframeForMedicine"
 import qrcode from "../../assets/qrcode.png"
 
 class AddOneDrug extends Component {
@@ -51,7 +51,7 @@ class AddOneDrug extends Component {
     </div>
   )
 
-   return <PhoneFrame titleText = { "Add a drug" } 
+   return <PhoneframeForMedicine titleText = { "Add a drug" } 
      screenContent={screenContent}/>
   }
 }

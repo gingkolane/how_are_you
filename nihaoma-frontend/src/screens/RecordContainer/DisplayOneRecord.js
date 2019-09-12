@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PhoneFrame from "../../components/Phoneframe"
+import PhoneframeForRecord from "../../components/PhoneframeForRecord"
 import { connect } from 'react-redux'
 
 class DisplayOneRecord  extends Component {
@@ -24,7 +24,7 @@ class DisplayOneRecord  extends Component {
     </ul> 
   )
 
-   return <PhoneFrame titleText = {this.props.selectedRecord.date_of_visit}
+   return <PhoneframeForRecord titleText = {this.props.selectedRecord.date_of_visit}
      screenContent={screenContent}/>
   }
 }
