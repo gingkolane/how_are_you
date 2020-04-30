@@ -19,25 +19,27 @@ import MedicineContainer from './containers/MedicineContainer'
 class App extends Component {
   
   //get user information using token, if localStorage has a token
-  componentDidMount() {
-    if (localStorage.token) {
-      fetch("http://localhost:3000/auth", {
-        // headers: { Authorization: "bearer " + localStorage.token }
-        headers: { Authorization: localStorage.token }
-      })
-      .then(resp => resp.json())
-      .then(user => {
-        // debugger
-        this.props.persistUserWithToken(user)
-        this.props.getMyConditions(user.myConditions)
-        this.props.getMyRecords(user.myRecords)
-        this.props.getMyRecordsInFull(user.myrecords_infull)
-        this.props.getMyTreatments(user.myTreatments )
-        this.props.getMyDoctors( user.myDoctors )
-        this.props.getMyTreatmentsGroupByConditions(user.condition_with_treatment)
-      })
-    }
-  }
+  // componentDidMount() {
+
+
+  //   if (localStorage.token) {
+  //     fetch("http://localhost:3000/auth", {
+  //       // headers: { Authorization: "bearer " + localStorage.token }
+  //       headers: { Authorization: localStorage.token }
+  //     })
+  //     .then(resp => resp.json())
+  //     .then(user => {
+  //       // debugger
+  //       this.props.persistUserWithToken(user)
+  //       this.props.getMyConditions(user.myConditions)
+  //       this.props.getMyRecords(user.myRecords)
+  //       this.props.getMyRecordsInFull(user.myrecords_infull)
+  //       this.props.getMyTreatments(user.myTreatments )
+  //       this.props.getMyDoctors( user.myDoctors )
+  //       this.props.getMyTreatmentsGroupByConditions(user.condition_with_treatment)
+  //     })
+  //   }
+  // }
 
   render() { 
     return ( 
