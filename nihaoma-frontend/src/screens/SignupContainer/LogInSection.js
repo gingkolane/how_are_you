@@ -40,7 +40,7 @@ class logInSection extends Component {
       this.props.logIn({ user: data.user, token: data.token })
       this.props.getMyConditions(data.myConditions)
       this.props.getMyRecords(data.myRecords)
-      this.props.getMyRecordsInFull(data.myrecords_infull)
+      // this.props.getMyRecordsInFull(data.myrecords_infull)
       this.props.getMyTreatments(data.myTreatments)
       this.props.getMyDoctors(data.myDoctors)
       this.props.getMyTreatmentsGroupByConditions(data.condition_with_treatment)

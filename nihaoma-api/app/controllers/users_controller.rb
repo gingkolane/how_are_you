@@ -16,15 +16,28 @@ class UsersController < ApplicationController
 
   # post "/signup", a new user enters its information and post to create a new user in database
   def create
+    
     user = User.create(user_params)
     # If user created successfully, server gives the user a json web token, user keeps this token in the browser, and use it in headers to authenticate itself when request information from server
     # If frontend is handled by rails, rails will setup a session(with user_id) to authenticate user and persist user connection. Now react handles frontend, getting data using json, we use json web token. 
+    
     if user.valid?
       current_condition = Condition.find_by(condition_name: params["user"]["myCondition"])
       
       # TODO: Here we want to redesign this when we're ready to take in multiple
       # conditions upon creating a user
+
+    # when a user and his condition is created, a condition_user is created as well
       condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
+
+    # the treatment for the current conditions can be found through the condition_treatment table
+      treatments_for_this_condition = current_condition.treatments
+      object = {
+        name: condition.condition_name,
+        treatments: treatments
+        }
+      object
+
 
       treatments_for_my_conditions = user.conditions.map do |condition|
         treatments_for_this_condition = condition.treatments
@@ -36,6 +49,7 @@ class UsersController < ApplicationController
         }
         object
       end
+
 
       myrecords_infull = user.records.map do |record|
         object = {
