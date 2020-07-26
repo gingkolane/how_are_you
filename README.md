@@ -5,7 +5,7 @@ The web app is composed of five major functionality view groups offers informati
 Each view group has multiple phone screens with live implementation of all the functionality. 
 
 Built With:
-* React/Redux(Redux Starter Kit) - Frontend Framework
+* React/Redux/Redux Toolkit(formerly Redux Starter Kit) - Frontend Framework
 * Ruby on Rails - Backend API
 * MySQL database
 * JWT authentication
