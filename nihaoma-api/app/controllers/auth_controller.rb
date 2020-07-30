@@ -16,7 +16,7 @@ class AuthController < ApplicationController
             name: condition.condition_name,
             treatments: treatments
         }
-        object
+        object && 'No treatment yet'
       end
       
       myrecords_infull = user.records.map do |record|
@@ -26,18 +26,18 @@ class AuthController < ApplicationController
           date_of_visit: record.date_of_visit,
           treatments: record.treatments
         }
-        object
+        object && 'No record yet'
       end 
 
       render json: {
         user: user, 
         token: encode_token(user),
         myConditions: user.conditions,
-        myRecords: user.records,
-        condition_with_treatment: treatments_for_my_conditions,
-        myTreatments: user.treatments,
-        myDoctors: user.doctors,
-        myrecords_infull: user.myrecords_infull
+        myRecords: user.records
+        # condition_with_treatment: treatments_for_my_conditions,
+        # myTreatments: user.treatments,
+        # myDoctors: user.doctors,
+        # myrecords_infull: user.myrecords_infull
       }
     else
       render json: { errors: ["Wrong username or password bud. Sorry!"] }, status: :unprocessable_entity
@@ -56,7 +56,7 @@ class AuthController < ApplicationController
           treatments: treatments
         }
 
-        object
+        object && 'No treatment yet'
       end
 
       myrecords_infull = current_user.records.map do |record|
@@ -66,15 +66,16 @@ class AuthController < ApplicationController
           date_of_visit: record.date_of_visit,
           treatments: record.treatments
         }
-        object
+        object && 'No record yet'
       end 
 
       render json: { 
         currentUser: current_user, 
         myConditions: current_user.conditions,
-        myRecords: current_user.records,
+        myRecords: current_user.records ,
         myTreatments: current_user.treatments,
-        condition_with_treatment: treatments_for_my_conditions,
+        # # is the name here correct? what is condition_with_treatment
+        # condition_with_treatment: treatments_for_my_conditions,
         myDoctors: current_user.doctors,
         myrecords_infull: myrecords_infull
       }

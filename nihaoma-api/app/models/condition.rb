@@ -1,7 +1,9 @@
 class Condition < ApplicationRecord
   
-  has_many :conditions_users
-  has_many :users, through: :conditions_users
+  # has_many :conditions_users
+  # has_many :users, through: :conditions_users
+
+  has_many :records
 
   has_many :conditions_doctors
   has_many :doctors, through: :conditions_doctors
