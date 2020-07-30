@@ -46,7 +46,8 @@ class App extends Component {
     return (
       <>
         <div className="title-box">
-          <Typist className="title-text" stdTypingDelay=150 >
+          {/* how to set attribute for integer: {} */}
+          <Typist className="title-text" stdTypingDelay={150}>
             This is an app supporting you, <br />
             <br />
             when you are fragile. <br />
