@@ -5,15 +5,20 @@ class User < ApplicationRecord
   has_many :records
   has_many :conditions, through: :records
   has_many :doctors, through: :records
+  # has_many :conditions, {:through=>:records, :source=>"condition"}
+
   has_many :records_treatments, through: :records
-  has_many :treatments, through: :records_treatments
-  
-  # has_many :conditions_users
-  # has_many :conditions, through: :conditions_users
-  # has_many :records, through: :conditions_users
 
   has_many :groups_users
   has_many :groups, through: :groups_users
+
+  def mytreatments
+    self.records.map {|record| record.treatments}
+  end
+
+  def mytreatments_by_condition(condition_name)
+    self.records.map {|record| record.treatments if record.condition.condition_name === condition_name}
+  end
 
   # def get_treatments
 

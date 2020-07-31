@@ -1,12 +1,9 @@
 class Condition < ApplicationRecord
   
-  # has_many :conditions_users
-  # has_many :users, through: :conditions_users
-
   has_many :records
 
-  has_many :conditions_doctors
-  has_many :doctors, through: :conditions_doctors
+  has_many :doctors, through: :records
+  has_many :users, through: :records
 
   has_many :conditions_trials
   has_many :trials, through: :conditions_trials
@@ -14,5 +11,6 @@ class Condition < ApplicationRecord
   has_many :conditions_treatments
   has_many :treatments, through: :conditions_treatments
 
-  has_many :groups
+  has_one :group
+
 end 
