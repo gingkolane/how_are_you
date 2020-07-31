@@ -17,25 +17,11 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.string "parent_id", limit: 45
   end
 
-  create_table "conditions_doctors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "condition_id", null: false
-    t.integer "doctor_id", null: false
-  end
-
   create_table "conditions_treatments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "condition_id", null: false
     t.integer "treatment_id", null: false
-  end
-
-  create_table "conditions_trials", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "condition_id"
-    t.integer "trial_id"
-    t.text "NCT_ID", limit: 4294967295
-  end
-
-  create_table "conditions_users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "condition_id"
-    t.integer "user_id"
+    t.index ["condition_id"], name: "conditionKey_idx"
+    t.index ["treatment_id"], name: "treatmentKey_idx"
   end
 
   create_table "doctors", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -48,20 +34,9 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.text "COUNTRY", limit: 4294967295
   end
 
-  create_table "doctors_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "record_id"
-    t.integer "doctor_id"
-  end
-
-  create_table "doctors_trials", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "trial_id"
-    t.integer "doctor_id"
-    t.text "NCT_ID", limit: 4294967295
-  end
-
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.string "group_type", comment: "dis_group, interest_group, official_group"
     t.bigint "condition_id"
+    t.string "group_type", comment: "dis_group, interest_group, official_group"
     t.string "group_name"
     t.string "description"
     t.string "avatar_url"
@@ -70,38 +45,38 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.string "time_founded"
   end
 
-  create_table "groups_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "group_id"
-    t.bigint "user_id"
+  create_table "groups_users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
     t.string "priviledge", comment: "0:regular, 1: admin, 2:creator"
     t.integer "hide", limit: 1, comment: "0: view post, 1: hide group post"
     t.date "time_user_joined"
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "doctor_id"
+    t.integer "condition_id"
     t.date "date_of_record"
     t.string "record_type", collation: "utf8mb4_0900_ai_ci", comment: "treatement visit, regular visit"
     t.string "diagnosis"
-    t.integer "conditions_user_id"
-    t.index ["conditions_user_id"], name: "conditionUserKey_idx"
+    t.index ["condition_id"], name: "conditionKey_idx"
+    t.index ["user_id"], name: "userKey_idx"
   end
 
   create_table "records_treatments", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "treatment_id"
-    t.bigint "record_id"
-    t.string "type", limit: 10
+    t.integer "record_id"
+    t.integer "treatment_id"
+    t.index ["record_id"], name: "recordKey_idx"
+    t.index ["treatment_id"], name: "treatmentKey_idx"
   end
 
   create_table "treatments", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.text "treatment_name", limit: 4294967295
     t.text "treatment_type", limit: 4294967295
     t.text "DESCRIPTION", limit: 4294967295
-  end
-
-  create_table "treatments_trials", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "treatment_id"
-    t.integer "trial_id"
-    t.text "NCT_ID", limit: 4294967295
+    t.boolean "is_part_of_trial"
+    t.string "NCT_ID", limit: 10
   end
 
   create_table "trials", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
@@ -141,5 +116,8 @@ ActiveRecord::Schema.define(version: 2019_08_14_023826) do
     t.string "myCondition"
   end
 
-  add_foreign_key "records", "conditions_users", name: "conditionUserKey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "records", "conditions", name: "conditionKey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "records", "users", name: "userKey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "records_treatments", "records", primary_key: "user_id", name: "recordKey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "records_treatments", "treatments", name: "treatmentKey", on_update: :cascade, on_delete: :cascade
 end
