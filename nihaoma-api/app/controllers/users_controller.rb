@@ -37,16 +37,25 @@ class UsersController < ApplicationController
     if user.valid?
       current_user = user
       current_condition = Condition.find_by(condition_name: params["myCondition"])
-
       # TODO: Here we want to redesign this when we're ready to take in multiple
       # conditions upon creating a user
 
-    # when a user and his condition is created, a condition_user is created as well
-      condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
+    # when a user and his condition is created, a record is created
+      # condition_user = ConditionsUser.create(condition_id: current_condition.id, user_id: user.id)
+      # doctor is a required field here for some reason, so set doctor id to one for self-described.
+      record = Record.create(condition_id: current_condition.id, doctor_id: 1, user_id: user.id, record_type: "self-described")
+
+    # when a user is created, it is automatically assigned to its prospective conditiongroup using GroupsUser model
+      group_user = GroupsUser.create(group_id:current_condition.group.id, user_id: user.id)
 
       render json: {
         token: encode_token(user), 
-        currentUser: user
+        currentUser: current_user, 
+        myConditions: current_user.conditions,
+        myDoctors: current_user.doctors,
+        myRecords: current_user.records,
+        myTreatments: current_user.my_treatments, 
+        myGroups: current_user.groups
       }
     else
       render json: {errors: user.errors.full_messages}
@@ -54,26 +63,27 @@ class UsersController < ApplicationController
   end
 
   # get "/profile", view current user's own information
-  def profile
+  # def profile
 
-    if current_user
+  #   if token
+  #   current_user
 
-      render json: {
-        currentUser: current_user
-        myConditions: current_user.conditions,
-        myDoctors: current_user.doctors
-        myRecords: current_user.records,
-        myTreatments: current_user.treatments, 
-        myGroups: current_user.groups
-        
-        # condition_with_treatment: treatments_for_my_conditions,
-        # myRecordsInFull: myrecords_infull && 'N/A'
-        # myRecordsInFull: myrecords_infull if myrecords_infull
-      }
+  #   render json: {
+  #     token: token,
+  #     currentUser: current_user, 
+  #     myConditions: current_user.conditions,
+  #     myDoctors: current_user.doctors,
+  #     myRecords: current_user.records,
+  #     # myTreatments: current_user.my_treatments, 
+  #     myGroups: current_user.groups
 
-    end
+  #     # condition_with_treatment: treatments_for_my_conditions,
+  #     # myRecordsInFull: myrecords_infull && 'N/A'
+  #     # myRecordsInFull: myrecords_infull if myrecords_infull
+  #   }
+  #   end
 
-  end 
+  # end 
 
   private
   # note:  rails api, don't need to use require
