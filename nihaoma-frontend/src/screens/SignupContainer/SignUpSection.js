@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { signUp } from "../../reduxstore/user.js";
+// import { signUp } from "../../reduxstore/user.js";
+import { persistUserWithToken } from "../../reduxstore/user.js";
 import { getMyConditions } from "../../reduxstore/condition.js";
 import { getMyRecords } from "../../reduxstore/record.js";
-import { getMyRecordsInFull } from "../../reduxstore/record.js";
-import {
-  getMyTreatments,
-  getMyTreatmentsGroupByConditions,
-} from "../../reduxstore/treatment.js";
+// import { getMyRecordsInFull } from "../../reduxstore/record.js";
+// import {
+//   getMyTreatments,
+//   getMyTreatmentsGroupByConditions,
+// } from "../../reduxstore/treatment.js";
 import { getMyDoctors } from "../../reduxstore/doctor.js";
 
 class SignUpSection extends Component {
@@ -36,28 +37,34 @@ class SignUpSection extends Component {
       },
       body: JSON.stringify(this.state),
     })
-      // .then((res) => res.json())
-      .then((response) => response.text())
-      .then(
-        (data) => console.log(data)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data in signup fetch", data);
+        //fetch returns data are what render json give us, token, user, currentCondtion
+        //save token to localStorage
+        localStorage.token = data.token;
 
-        // {
-        //   //fetch returns data are what render json give us, token, user, currentCondtion
-        //   //save token to localStorage
-        //   localStorage.token = data.token;
+        //dispatch user and condition to its respective store slice
 
-        //   //dispatch user and condition to its respective store slice
-        //   this.props.signUp({ user: data.user, token: data.token });
-        //   this.props.getMyConditions(data.myConditions);
-        //   this.props.getMyRecords(data.myRecords);
-        //   this.props.getMyRecordsInFull(data.myrecords_infull);
-        //   this.props.getMyTreatments(data.myTreatments);
-        //   this.props.getMyDoctors(data.myDoctors);
-        //   this.props.getMyTreatmentsGroupByConditions(
-        //     data.condition_with_treatment
-        //   );
-        // }
-      );
+        this.props.persistUserWithToken({
+          user: data.currentUser,
+          token: data.token,
+          // myConditions: data.myConditions,
+        });
+
+        // this.props.signUp({ user: data.user, token: data.token });
+        // this.props.signUp({ user: data.currentUser, token: data.token });
+        // payload is data.myConditions
+        this.props.getMyConditions(data.myConditions);
+        // payload is data.myRecords
+        this.props.getMyRecords(data.myRecords);
+        // this.props.getMyRecordsInFull(data.myrecords_infull);
+        // this.props.getMyTreatments(data.myTreatments);
+        this.props.getMyDoctors(data.myDoctors);
+        // this.props.getMyTreatmentsGroupByConditions(
+        //   data.condition_with_treatment
+        // );
+      });
 
     //after fetch, clear the form
     this.setState({
@@ -106,13 +113,14 @@ class SignUpSection extends Component {
 }
 
 const mapDispatchToProps = {
-  signUp,
+  // signUp,
+  persistUserWithToken,
   getMyConditions,
   getMyRecords,
-  getMyTreatments,
-  getMyTreatmentsGroupByConditions,
+  // getMyTreatments,
+  // getMyTreatmentsGroupByConditions,
   getMyDoctors,
-  getMyRecordsInFull,
+  // getMyRecordsInFull,
 };
 
 export default connect(null, mapDispatchToProps)(SignUpSection);
