@@ -9,12 +9,14 @@ class ConditionsController < ApplicationController
     condition = Condition.find(params[:id])
 
     render json: {
-      condition: condition,
-      treatmentsOfCondition: condition.treatments,
-      trialsOfCondition: condition.trials,
-      doctorsOfCondition: condition.doctors
+      conditionName: condition_name,
+      myTreatmentsOfCondition: condition.my_treatments
+      # treatmentsOfCondition: condition.treatments,
+      # trialsOfCondition: condition.trials,
+      # doctorsOfCondition: condition.doctors
     }
-
   end
+
+  def show
 
 end
