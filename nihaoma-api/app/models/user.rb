@@ -12,23 +12,12 @@ class User < ApplicationRecord
   has_many :groups_users
   has_many :groups, through: :groups_users
 
-  def mytreatments
+  def my_treatments
     self.records.map {|record| record.treatments}
   end
 
-  def mytreatments_by_condition(condition_name)
+  def my_treatments_by_condition(condition_name)
     self.records.map {|record| record.treatments if record.condition.condition_name === condition_name}
   end
-
-  # def get_treatments
-
-  # def create_conditions_user(condition)
-  #   currentCondition = Condition.find_by(condition_name: condition)
-  #   ConditionsUser.create(
-  #     condition_id: currentCondition.id, 
-  #     user_id: self.id
-  #   )
-  #   return currentCondition
-  # end
   
 end
