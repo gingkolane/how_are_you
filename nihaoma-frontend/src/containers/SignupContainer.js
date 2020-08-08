@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import WelcomeScreen from "../screens/SignupContainer/WelcomeScreen"
-import DiseaseGroupsScreen from "../screens/SignupContainer/DiseaseGroupsScreen.js"
-import OfficalGroupsScreen from "../screens/SignupContainer/OfficalGroupsScreen.js"
-import InterestGroupsScreen from "../screens/SignupContainer/InterestGroupsScreen.js"
-import SubmitScreen from "../screens/SignupContainer/SubmitScreen"
+import React, { Component } from "react";
+import WelcomeScreen from "../screens/SignupContainer/WelcomeScreen";
+import DiseaseGroupsScreen from "../screens/SignupContainer/DiseaseGroupsScreen.js";
+import OfficalGroupsScreen from "../screens/SignupContainer/OfficalGroupsScreen.js";
+import InterestGroupsScreen from "../screens/SignupContainer/InterestGroupsScreen.js";
+import SubmitGroupScreen from "../screens/SignupContainer/SubmitGroupScreen.js";
 
 class SignupContainer extends Component {
-
-  render() { 
-    return ( 
+  render() {
+    return (
       <div className="section-container-5phone">
         <WelcomeScreen />
         <DiseaseGroupsScreen />
         <OfficalGroupsScreen />
         <InterestGroupsScreen />
-        <SubmitScreen/>
+        <SubmitGroupScreen />
       </div>
-     );
+    );
   }
 }
- 
+
 export default SignupContainer;
