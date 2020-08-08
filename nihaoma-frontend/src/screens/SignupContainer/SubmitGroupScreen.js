@@ -1,0 +1,65 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { persistUserWithToken } from "../../reduxstore/user.js";
+import PhoneFrame from "../../components/Phoneframe";
+
+class SubmitGroupScreen extends Component {
+  state = {
+    username: "",
+    password: "",
+    myCondition: "",
+  };
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    //submit user form data to user table to create new user, then get a token back, save to local storage and dispatch information to store
+    fetch("http://localhost:3000/signup", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Accepts: "application/json",
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        //save token to localStorage
+        localStorage.token = data.token;
+        //dispatch user information to user slice in store
+        this.props.persistUserWithToken({
+          user: data.currentUser,
+          token: data.token,
+        });
+      });
+  };
+
+  screenContent = (
+    <div className="toc-buttons">
+      <form onSubmit={this.handleSubmit}>
+        <input type="submit" value="Submit My Groups" />
+      </form>
+    </div>
+  );
+
+  render() {
+    return (
+      <PhoneFrame titleText={"My Groups"} screenContent={this.screenContent} />
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    // user: state.currentUser
+  };
+};
+
+const mapDispatchToProps = {
+  persistUserWithToken,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitGroupScreen);
