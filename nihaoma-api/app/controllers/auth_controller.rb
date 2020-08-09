@@ -3,6 +3,8 @@ class AuthController < ApplicationController
 
 # auth controller is used to create token and verify token - check if user has the its correct token 
 
+  # post '/login', to: 'auth#create', a user enters its information and post to create a authorization process, creat a token for the user
+
   def create
     user = User.find_by(username: user_params[:username])
 
@@ -26,6 +28,7 @@ class AuthController < ApplicationController
     end
   end
 
+  # get '/auth', to: 'auth#persist'
   def persist
 
       if token 
@@ -36,18 +39,15 @@ class AuthController < ApplicationController
         myConditions: current_user.conditions,
         myRecords: current_user.records,
         myTreatments: current_user.my_treatments,
-        # # is the name here correct? what is condition_with_treatment
-        # condition_with_treatment: treatments_for_my_conditions,
         myDoctors: current_user.doctors,
         myGroups: current_user.groups
-        # myrecords_infull: myrecords_infull
       }
     end
   end  
 
   private
   def user_params
-    params.permit(:username, :password, :auth)
+    params.permit(:username, :password)
   end
 
 end
@@ -96,3 +96,7 @@ end
       #   }
       #   object && 'No record yet'
       # end 
+
+             # is the name here correct? what is condition_with_treatment
+        # condition_with_treatment: treatments_for_my_conditions,
+        # myrecords_infull: myrecords_infull
